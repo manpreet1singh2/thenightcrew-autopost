@@ -4,6 +4,7 @@
 // State: $STATE_DIR (default ./state) — workflow ise "automation-state" branch me save karta hai.
 import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
+import "../lib/envclean.js";
 import { connectedAccounts, CONFIG } from "../lib/accounts.js";
 import { approvedItems, stockItem, download } from "../lib/sources.js";
 import { captionFor } from "../lib/captions.js";
