@@ -59,11 +59,11 @@ function buildPlan() {
   }
   return { slots, quota: { youtubeUnits: 0, instagram: {} } };
 }
-if (!state.days[today]) {
+if (!state.days[today] && eligible.length) {  // accounts na milein to plan mat banao, agle run me try
   state.days[today] = buildPlan();
   log(`📅 Plan bana: ${state.days[today].slots.filter((s) => s.channel).length}/${state.target} slots`);
 }
-const day = state.days[today];
+const day = state.days[today] || { slots: [], quota: { youtubeUnits: 0, instagram: {} } };
 
 // ---------- headlines (topics ki aaj ki news) ----------
 const headlineCache = {};
