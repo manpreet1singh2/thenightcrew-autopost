@@ -1,0 +1,60 @@
+# Har ghante ek VIDEO post (Pexels stock video + AI caption + viral topic) — 100% free GitHub Actions par, Vercel ki zaroorat nahi.
+# Setup: Repo → Settings → Secrets and variables → Actions → "New repository secret"
+#   Zaroori: OPENROUTER_API_KEY (ya COHERE_API_KEY), PEXELS_API_KEY
+#   Platforms (jo chahiye): FB_USER_TOKEN (saare FB pages), FB_PAGE_TOKEN, IG_TOKEN, LINKEDIN_TOKEN, LINKEDIN_TOKEN_2, BSKY_APP_PASSWORD, TELEGRAM_BOT_TOKEN, DISCORD_WEBHOOK_URL
+# IDs (secret nahi hain) → "Variables" tab me: FB_PAGE_ID, IG_USER_ID, LINKEDIN_ORGS, LINKEDIN_ORGS_2, OPENROUTER_MODEL, PLATFORMS ...
+name: autopost
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # har ghante (:17 par; GitHub kabhi-kabhi 5–20 min late chalata hai)
+  workflow_dispatch:        # Actions tab se haath se chalao
+    inputs:
+      dry:
+        description: "Sirf preview (post nahi hogi)?"
+        type: boolean
+        default: true
+
+concurrency: autopost      # do run ek saath na chalein (double post se bachne ke liye)
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Post
+        run: node scripts/autopost.mjs
+        env:
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry && '1' || '0' }}
+          INTERVAL_MINUTES: "60"
+          FORCE_TYPE: ${{ vars.FORCE_TYPE || 'video' }}   # video = har post Pexels reel; khaali = posts.json ka type
+          TREND_TOPICS: ${{ vars.TREND_TOPICS || '1' }}   # 1 = Google Trends se viral topic
+          PLATFORMS: ${{ vars.PLATFORMS }}
+          # AI
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          # Facebook / Instagram
+          FB_PAGE_ID: ${{ vars.FB_PAGE_ID || '628058697050691' }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FB_USER_TOKEN: ${{ secrets.FB_USER_TOKEN }}     # set ho to account ke SAARE pages par post
+          FB_SKIP_PAGES: ${{ vars.FB_SKIP_PAGES }}        # comma se page ID/naam jinhe skip karna hai
+          IG_USER_ID: ${{ vars.IG_USER_ID || '17841441874871503' }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          # LinkedIn
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          LINKEDIN_ORGS: ${{ vars.LINKEDIN_ORGS || '111479154,111524124' }}
+          LINKEDIN_TOKEN_2: ${{ secrets.LINKEDIN_TOKEN_2 }}
+          LINKEDIN_ORGS_2: ${{ vars.LINKEDIN_ORGS_2 || '105949608' }}
+          LINKEDIN_VERSION: ${{ vars.LINKEDIN_VERSION || '202510' }}
+          # Optional
+          BSKY_HANDLE: ${{ vars.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
