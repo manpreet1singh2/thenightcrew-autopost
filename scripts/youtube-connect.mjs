@@ -3,6 +3,7 @@
 // 2) Link kholo → channel chuno → Allow. Browser "127.0.0.1 refused to connect" dikhayega — wo normal hai.
 // 3) Address bar ka poora URL copy karo → youtube-connect dobara Run karo, "redirect_url" me paste karo.
 // Refresh token encrypted form me automation-state/yt-tokens.json me save hota hai; log me kabhi nahi chhapta.
+import { checks } from "../lib/envclean.js";
 import { appendFileSync } from "node:fs";
 import { saveChannel, storedChannels } from "../lib/ytstore.js";
 
@@ -12,6 +13,10 @@ const summary = (s) => { console.log(s); if (env.GITHUB_STEP_SUMMARY) appendFile
 
 if (!env.YT_CLIENT_ID || !env.YT_CLIENT_SECRET) {
   summary("❌ GitHub secrets me YT_CLIENT_ID aur YT_CLIENT_SECRET chahiye.");
+  process.exit(1);
+}
+if (!checks.YT_CLIENT_ID || !checks.YT_CLIENT_SECRET) {
+  summary(`❌ GitHub secret ka format galat hai: ${!checks.YT_CLIENT_ID ? "YT_CLIENT_ID (…apps.googleusercontent.com hona chahiye) " : ""}${!checks.YT_CLIENT_SECRET ? "YT_CLIENT_SECRET (GOCSPX- se shuru)" : ""}. Secret edit karke sirf value paste karo.`);
   process.exit(1);
 }
 
