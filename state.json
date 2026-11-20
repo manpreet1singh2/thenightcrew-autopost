@@ -1,0 +1,164 @@
+{
+ "target": 13,
+ "days": {
+  "2026-11-21": {
+   "slots": [
+    {
+     "i": 0,
+     "at": 1795228200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 1,
+     "at": 1795232700000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 2,
+     "at": 1795237200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 3,
+     "at": 1795241700000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 4,
+     "at": 1795246200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 5,
+     "at": 1795250700000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 6,
+     "at": 1795255200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 7,
+     "at": 1795259700000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 8,
+     "at": 1795264200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 9,
+     "at": 1795268700000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 10,
+     "at": 1795273200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 11,
+     "at": 1795277700000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 12,
+     "at": 1795282200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    }
+   ],
+   "quota": {
+    "youtubeUnits": 0,
+    "instagram": {}
+   }
+  }
+ },
+ "posted": {},
+ "discovered": [],
+ "errors": [],
+ "accounts": {
+  "fetchedAt": 1795212168917,
+  "list": [
+   {
+    "key": "facebook:628058697050691",
+    "platform": "facebook",
+    "id": "628058697050691",
+    "name": "The night crew",
+    "category": "Information technology company",
+    "eligible": true,
+    "reason": "",
+    "stats": {
+     "followers": 5
+    }
+   }
+  ]
+ },
+ "discoveredOn": "2026-11-21"
+}
