@@ -15,6 +15,7 @@
 //   VIDEOS_PER_DAY  default 5    LONG_TIMES  IST, default "09:00,12:00,15:00,18:00,21:00" (agla aane wala slot)
 //   CLIP_COUNT      har video ke clips, default 2 (0 = band)    CLIP_GAP_MIN  long video ke kitne min baad clip, default 60
 //   FFMPEG          ffmpeg ka path (Mac: brew install ffmpeg)
+//   YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKENS   YouTube (scripts/youtube-auth.mjs)   YT_MAX_UPLOADS_PER_DAY default 6
 //
 // Chalao:  node --env-file=.env local/daily-video.mjs
 import { execFile } from "node:child_process";
@@ -25,6 +26,7 @@ import posts from "../posts.json" with { type: "json" };
 import { aiEnabled, writePost } from "../lib/ai.js";
 import { pickPost, todayIST } from "../lib/pick.js";
 import { trendingTopics } from "../lib/trends.js";
+import { youtubeEnabled, uploadToYouTube } from "../lib/youtube.js";
 
 const env = process.env;
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -189,6 +191,9 @@ async function main() {
   if (env.DRY_RUN !== "1" && !targets.length) throw new Error("Koi Facebook page nahi mila (FB_USER_TOKEN / FB_PAGE_ID check karo)");
   const day = todayIST();
   let made = 0;
+  // YouTube quota: ek upload ≈ 1600 units, free 10,000/din → saare channels milake ~6 uploads
+  const ytChannels = youtubeEnabled() ? env.YT_REFRESH_TOKENS.split(",").filter((x) => x.trim()).length : 0;
+  let ytLeft = Number(env.YT_MAX_UPLOADS_PER_DAY || 6);
 
   for (const [i, t] of topics.entries()) {
     const tag = `${day}-${i + 1}`;
@@ -232,6 +237,14 @@ async function main() {
         try { await uploadVideo(p, mp4, caption.text, caption.headline, at); log(`🕒 ${p.name}: video ${i + 1} → ${fmt(at)}`); }
         catch (e) { log(`❌ ${p.name}: video ${i + 1}: ${e.message}`); }
       }
+
+      // 5b) YouTube (har channel par Shorts, usi time par)
+      if (ytChannels && ytLeft >= ytChannels) {
+        ytLeft -= ytChannels;
+        for (const y of await uploadToYouTube(mp4, { headline: caption.headline, text: caption.text, publishAt: at })) {
+          log(y.error ? `❌ YouTube ${y.channel}: ${y.error}` : `▶️ YouTube ${y.channel}: https://youtu.be/${y.id} (${y.privacy}) → ${fmt(at)}`);
+        }
+      } else if (ytChannels) log(`⏭️ YouTube skip (aaj ka quota limit YT_MAX_UPLOADS_PER_DAY pura)`);
 
       // 6) Iske clips: long video ke clipGapMin, 2×clipGapMin… minute baad
       if (clipCount > 0) {
