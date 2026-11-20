@@ -1,0 +1,49 @@
+# YouTube channel repo se jodo. Pehle khali Run karo → summary me Allow link. Allow ke baad wala URL paste karke dobara Run.
+name: youtube-connect
+
+on:
+  workflow_dispatch:
+    inputs:
+      redirect_url:
+        description: "Allow ke baad address bar ka poora URL (pehli baar khali chhodo)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency: publisher
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: State branch laao
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          URL="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$URL" automation-state >/dev/null 2>&1; then
+            git clone --depth 1 --branch automation-state "$URL" state
+          else
+            mkdir state && cd state && git init -q -b automation-state && git remote add origin "$URL"
+          fi
+      - name: Connect
+        run: node scripts/youtube-connect.mjs
+        env:
+          STATE_DIR: state
+          REDIRECT_URL: ${{ inputs.redirect_url }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      - name: Save
+        run: |
+          cd state
+          [ -f yt-tokens.json ] || exit 0
+          git config user.name "autopost-bot"; git config user.email "autopost-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -qm "youtube channel jodaa"
+          git push -q origin automation-state
