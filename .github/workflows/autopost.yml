@@ -1,4 +1,4 @@
-# Har ghante ek VIDEO post (Pexels stock video + AI caption + viral topic) — 100% free GitHub Actions par, Vercel ki zaroorat nahi.
+# (Ab sirf manual) Ek VIDEO post — roz ka automation ab publisher.yml karta hai. Pehle: har ghante ek VIDEO post (Pexels stock video + AI caption + viral topic) — 100% free GitHub Actions par, Vercel ki zaroorat nahi.
 # Setup: Repo → Settings → Secrets and variables → Actions → "New repository secret"
 #   Zaroori: OPENROUTER_API_KEY (ya COHERE_API_KEY), PEXELS_API_KEY
 #   Platforms (jo chahiye): FB_USER_TOKEN (saare FB pages), FB_PAGE_TOKEN, IG_TOKEN, LINKEDIN_TOKEN, LINKEDIN_TOKEN_2, BSKY_APP_PASSWORD, TELEGRAM_BOT_TOKEN, DISCORD_WEBHOOK_URL
@@ -6,8 +6,6 @@
 name: autopost
 
 on:
-  schedule:
-    - cron: "17 * * * *"   # har ghante (:17 par; GitHub kabhi-kabhi 5–20 min late chalata hai)
   workflow_dispatch:        # Actions tab se haath se chalao
     inputs:
       dry:
