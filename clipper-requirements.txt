@@ -1,0 +1,15 @@
+# GitHub Actions (CPU, free) ke liye halki list — torch / pyannote / ultralytics nahi
+# (split-screen, camera-switch aur YOLO isliye kaam nahi karenge; normal face-tracking MediaPipe se chalega)
+yt-dlp
+faster-whisper
+google-genai
+openai>=2.6,<3
+httpx>=0.27,<1
+jsonschema>=4.23,<5
+numpy<2.0.0
+mediapipe
+opencv-python-headless
+Pillow
+requests
+python-dotenv
+edge-tts
