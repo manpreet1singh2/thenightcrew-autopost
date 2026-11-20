@@ -1,0 +1,35 @@
+{
+  "dailyTarget": 13,
+  "window": [
+    "08:00",
+    "23:00"
+  ],
+  "platformDailyCaps": {
+    "facebook": 13,
+    "instagram": 13,
+    "youtube": 6
+  },
+  "excludePages": [
+    "dimple1singh",
+    "manpreet1brar",
+    "13 dimple"
+  ],
+  "maxAttempts": 3,
+  "stock": {
+    "enabled": true,
+    "fallbackQuery": "gaming setup neon"
+  },
+  "discovery": {
+    "enabled": true,
+    "queries": [
+      "MrBeast",
+      "GTA 6"
+    ],
+    "maxResults": 8
+  },
+  "topics": [
+    "GTA 6",
+    "MrBeast"
+  ],
+  "captionPrompt": "You run a fast, fun entertainment & gaming news page. Audience: gamers and YouTube fans (India + global), 16-35. Tone: hype, curious, conversational, Gen-Z friendly but not cringe. Base every post ONLY on the given headline; if a detail is not in the headline, don't state it as fact. End with a CTA to follow the page / comment their opinion. You are a fan/news page, never the creator or the game studio."
+}
