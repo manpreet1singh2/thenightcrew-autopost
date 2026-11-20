@@ -1,0 +1,72 @@
+# Multi-channel publisher: roz config.json → dailyTarget (13) videos, saare eligible FB Pages / IG Professional / YouTube channels par.
+# Har ghante chalta hai; jo slots due hain unhe publish + verify karta hai. State + dashboard "automation-state" branch me (STATUS.md).
+# Secrets: FB_USER_TOKEN, OPENROUTER_API_KEY (ya COHERE_API_KEY), PEXELS_API_KEY
+#          YouTube: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKENS (comma se, scripts/youtube-auth.mjs)   Optional: YT_API_KEY (discovery)
+name: publisher
+
+on:
+  schedule:
+    - cron: "7 * * * *"     # har ghante :07 (IST :37)
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "Dry run (sirf plan + caption, upload nahi)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency: publisher
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: State branch laao
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          URL="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$URL" automation-state >/dev/null 2>&1; then
+            git clone --depth 1 --branch automation-state "$URL" state
+          else
+            mkdir state && cd state && git init -q -b automation-state && git remote add origin "$URL"
+          fi
+
+      - name: yt-dlp (sirf approved page-links ke liye)
+        run: |
+          if grep -q '"url"' content/approved.json 2>/dev/null; then pip install -q yt-dlp; fi
+
+      - name: Publish
+        run: node scripts/publisher.mjs
+        env:
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry && '1' || '0' }}
+          STATE_DIR: state
+          FB_USER_TOKEN: ${{ secrets.FB_USER_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKENS: ${{ secrets.YT_REFRESH_TOKENS }}
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
+          YT_MAX_UPLOADS_PER_DAY: ${{ vars.YT_MAX_UPLOADS_PER_DAY || '6' }}
+          DAILY_TARGET: ${{ vars.DAILY_TARGET }}
+
+      - name: State + dashboard save
+        if: always() && !(github.event_name == 'workflow_dispatch' && inputs.dry)
+        run: |
+          cd state
+          [ -f state.json ] || exit 0
+          git config user.name "autopost-bot"; git config user.email "autopost-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -qm "state $(date -u +%FT%TZ)"
+          git push -q origin automation-state
