@@ -34,6 +34,20 @@ Mac support abhi "experimental" hai. macOS 14+ aur Xcode Command Line Tools chah
    - FreeVideo band ho to script use khud kholti hai, aur `caffeinate` video bante waqt Mac ko sone nahi deta.
    - Mac raat bhar charger pe aur lid khuli rakhni hai. Mac khud 10:25 PM pe jaage, iske liye: `sudo pmset repeat wakeorpoweron MTWRFSU 22:25:00`
 
+## ▶️ YouTube (har channel par Shorts)
+Har long AI video Facebook ke saath aapke saare YouTube channels pe bhi usi time pe Shorts ki tarah jaati hai.
+1. Google Cloud Console → **APIs & Services → Library** → "YouTube Data API v3" → **Enable**.
+2. **OAuth consent screen:**
+   - aapka email Test users me ho, **ya**
+   - **Publish app** ("In production") kar do. Testing mode me login 7 din me expire ho jaata hai.
+3. **Credentials:** OAuth client "Desktop app" type ka ho. Agar "Web" hai to Authorized redirect URI me `http://127.0.0.1:8085/callback` jodo.
+4. `.env` me `YT_CLIENT_ID` aur `YT_CLIENT_SECRET` daalo.
+5. Har channel ke liye ek baar `node --env-file=.env scripts/youtube-auth.mjs` chalao. Browser khulega, channel chun ke Allow dabao. Token apne aap `.env` me jud jaata hai.
+
+**Google ke niyam:**
+- Naye unverified project se upload hui videos **private** rehti hain. Public karne ke liye YouTube API audit form bharna padta hai.
+- Free quota me din me ~6 uploads hi ho sakte hain, saare channels milake (`YT_MAX_UPLOADS_PER_DAY`). Jaise 2 channels hon to 3 videos/din har channel pe jaayengi.
+
 ## Setup (Windows / Linux PC)
 1. FreeVideo install karo: https://github.com/FlashML-org/FreeVideo (Windows .exe / Mac .dmg / Linux). Ek baar app me khud ek video bana ke dekh lo ki chal raha hai.
 2. Node.js 20+ install karo (nodejs.org).
