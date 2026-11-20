@@ -1,11 +1,11 @@
 {
-  "dailyTarget": 13,
+  "dailyTarget": 24,
   "window": [
-    "08:00",
+    "00:00",
     "23:00"
   ],
   "platformDailyCaps": {
-    "facebook": 13,
+    "facebook": 24,
     "instagram": 13,
     "youtube": 6
   },
