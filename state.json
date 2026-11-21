@@ -75,8 +75,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:40069677",
+     "sourceKind": "stock",
+     "title": "MrBeast's Behind-the-Scenes Charity Power Broker",
+     "remoteId": "1870082630651825",
+     "publishedAt": 1795283787819,
+     "permalink": "https://www.facebook.com/reel/1870082630651825/"
     },
     {
      "i": 6,
@@ -85,8 +91,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Bad control character in string literal in JSON at position 183 (line 1 column 184)"
     },
     {
      "i": 7,
@@ -95,8 +102,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Bad control character in string literal in JSON at position 209 (line 1 column 210)"
     },
     {
      "i": 8,
@@ -105,8 +113,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:18866695",
+     "sourceKind": "stock",
+     "title": "GTA 6 a cozy game? PC Gamer says so",
+     "remoteId": "1136546302557675",
+     "publishedAt": 1795283808640,
+     "permalink": "https://www.facebook.com/reel/1136546302557675/"
     },
     {
      "i": 9,
@@ -160,7 +174,11 @@
    "pexels:27155336",
    "1aec4e7dfb2111ca291593a470e318996ce5b61c002a0878542eaa91c775f138",
    "pexels:20127315",
-   "fe4b539717176f99c1890a053d3546ac56f9aba98d408a83c69e879219cef989"
+   "fe4b539717176f99c1890a053d3546ac56f9aba98d408a83c69e879219cef989",
+   "pexels:40069677",
+   "98412baf4a38c7d280453b2c584062deb578bd5cbeda61fa7161fd7805eff84f",
+   "pexels:18866695",
+   "0339a03271ae970f6b82c768e61073259b1bff9961dc0db3a270e6794cc17dac"
   ]
  },
  "discovered": [],
@@ -176,10 +194,18 @@
   {
    "at": 1795258484938,
    "msg": "The night crew: Bad control character in string literal in JSON at position 148 (line 1 column 149)"
+  },
+  {
+   "at": 1795283793195,
+   "msg": "The night crew: Bad control character in string literal in JSON at position 183 (line 1 column 184)"
+  },
+  {
+   "at": 1795283798364,
+   "msg": "The night crew: Bad control character in string literal in JSON at position 209 (line 1 column 210)"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795258472030,
+  "fetchedAt": 1795283774293,
   "list": [
    {
     "key": "facebook:628058697050691",
