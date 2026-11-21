@@ -21,8 +21,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Bad control character in string literal in JSON at position 129 (line 1 column 130)"
     },
     {
      "i": 2,
@@ -31,8 +32,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Bad control character in string literal in JSON at position 148 (line 1 column 149)"
     },
     {
      "i": 3,
@@ -41,8 +43,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:27155336",
+     "sourceKind": "stock",
+     "title": "Lab-Grown Chicken Could Scale to 1M Pounds a Year",
+     "remoteId": "3224110487785370",
+     "publishedAt": 1795258496506,
+     "permalink": "https://www.facebook.com/reel/3224110487785370/"
     },
     {
      "i": 4,
@@ -51,8 +59,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:20127315",
+     "sourceKind": "stock",
+     "title": "GTA 6: A Generation Definer?",
+     "remoteId": "4437134713217020",
+     "publishedAt": 1795258506458,
+     "permalink": "https://www.facebook.com/reel/4437134713217020/"
     },
     {
      "i": 5,
@@ -141,16 +155,31 @@
    }
   }
  },
- "posted": {},
+ "posted": {
+  "facebook:628058697050691": [
+   "pexels:27155336",
+   "1aec4e7dfb2111ca291593a470e318996ce5b61c002a0878542eaa91c775f138",
+   "pexels:20127315",
+   "fe4b539717176f99c1890a053d3546ac56f9aba98d408a83c69e879219cef989"
+  ]
+ },
  "discovered": [],
  "errors": [
   {
    "at": 1795230436540,
    "msg": "The night crew: Cannot read properties of null (reading '0')"
+  },
+  {
+   "at": 1795258479858,
+   "msg": "The night crew: Bad control character in string literal in JSON at position 129 (line 1 column 130)"
+  },
+  {
+   "at": 1795258484938,
+   "msg": "The night crew: Bad control character in string literal in JSON at position 148 (line 1 column 149)"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795230422882,
+  "fetchedAt": 1795258472030,
   "list": [
    {
     "key": "facebook:628058697050691",
