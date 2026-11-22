@@ -290,8 +290,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:38721030",
+     "sourceKind": "stock",
+     "title": "GTA 6 PC Port? A $15M Crypto Twist",
+     "remoteId": "1533043501984719",
+     "publishedAt": 1795345554464,
+     "permalink": "https://www.facebook.com/reel/1533043501984719/"
     },
     {
      "i": 9,
@@ -300,8 +306,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:5976710",
+     "sourceKind": "stock",
+     "title": "The Times Has a Big Take on MrBeast",
+     "remoteId": "1370767155007671",
+     "publishedAt": 1795345564381,
+     "permalink": "https://www.facebook.com/reel/1370767155007671/"
     },
     {
      "i": 10,
@@ -310,8 +322,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:16244876",
+     "sourceKind": "stock",
+     "title": "Lana Del Rey’s Vice City-inspired Birkin turns heads",
+     "remoteId": "1479759910757381",
+     "publishedAt": 1795345574928,
+     "permalink": "https://www.facebook.com/reel/1479759910757381/"
     },
     {
      "i": 11,
@@ -320,8 +338,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading '0')"
     },
     {
      "i": 12,
@@ -469,7 +488,13 @@
    "pexels:4883833",
    "acff153a5f7bb8908eedf19078c7bef31cda8b642b633e9c8d13c290f6742e27",
    "pexels:38442100",
-   "1eb3aed4e6cc43cc10729d630e1656009519a96dd0fc13ca637f4deaf0019fd3"
+   "1eb3aed4e6cc43cc10729d630e1656009519a96dd0fc13ca637f4deaf0019fd3",
+   "pexels:38721030",
+   "1a0eb23b083dc274e529242a5524c210e66e0f753f69c1f00f27792561e78a32",
+   "pexels:5976710",
+   "4acc737ba2131adfa11224c36b9bac40dc29f817838816a31834166926acf0c2",
+   "pexels:16244876",
+   "6088e2d01cdf7260f2209cc4ef5cf45e68a47f2f4ffe1d4ffa0f4e75cbb9dbdc"
   ]
  },
  "discovered": [],
@@ -505,10 +530,14 @@
   {
    "at": 1795316539832,
    "msg": "The night crew: Cannot read properties of null (reading '0')"
+  },
+  {
+   "at": 1795345583233,
+   "msg": "The night crew: Cannot read properties of null (reading '0')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795316500676,
+  "fetchedAt": 1795345538209,
   "list": [
    {
     "key": "facebook:628058697050691",
