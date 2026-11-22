@@ -236,8 +236,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Bad control character in string literal in JSON at position 141 (line 1 column 142)"
     },
     {
      "i": 5,
@@ -246,8 +247,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:4883833",
+     "sourceKind": "stock",
+     "title": "MrBeast in the Hollywood A-lister chat? 👀",
+     "remoteId": "1171531802499272",
+     "publishedAt": 1795316528275,
+     "permalink": "https://www.facebook.com/reel/1171531802499272/"
     },
     {
      "i": 6,
@@ -256,8 +263,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading '0')"
     },
     {
      "i": 7,
@@ -266,8 +274,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:38442100",
+     "sourceKind": "stock",
+     "title": "The behind-the-scenes force in MrBeast's charity world",
+     "remoteId": "1460236203835775",
+     "publishedAt": 1795316558850,
+     "permalink": "https://www.facebook.com/reel/1460236203835775/"
     },
     {
      "i": 8,
@@ -451,7 +465,11 @@
    "pexels:1112221",
    "d94864ca7c9afaec70a3abc0d76f4678e1259b8f3ce2def11a1aa420274f50b5",
    "pexels:27155334",
-   "f797a5b9715eddcb45f2a09b4b22397e6b1c0415dc199c146d4e73d8ecb87f9b"
+   "f797a5b9715eddcb45f2a09b4b22397e6b1c0415dc199c146d4e73d8ecb87f9b",
+   "pexels:4883833",
+   "acff153a5f7bb8908eedf19078c7bef31cda8b642b633e9c8d13c290f6742e27",
+   "pexels:38442100",
+   "1eb3aed4e6cc43cc10729d630e1656009519a96dd0fc13ca637f4deaf0019fd3"
   ]
  },
  "discovered": [],
@@ -479,10 +497,18 @@
   {
    "at": 1795302305383,
    "msg": "The night crew: Bad control character in string literal in JSON at position 149 (line 1 column 150)"
+  },
+  {
+   "at": 1795316508348,
+   "msg": "The night crew: Bad control character in string literal in JSON at position 141 (line 1 column 142)"
+  },
+  {
+   "at": 1795316539832,
+   "msg": "The night crew: Cannot read properties of null (reading '0')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795302252744,
+  "fetchedAt": 1795316500676,
   "list": [
    {
     "key": "facebook:628058697050691",

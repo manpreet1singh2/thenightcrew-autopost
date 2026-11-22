@@ -1,15 +1,15 @@
 # 📊 TheNightCrew Publishing Dashboard
-_Last update: 22 Nov 2026, 4:35 am IST · auto-refresh har ghante_
+_Last update: 22 Nov 2026, 8:32 am IST · auto-refresh har ghante_
 
 ## Aaj (2026-11-22) — target 24
 | ✅ Published | ⏳ Processing | 🕒 Pending | 🔁 Retry | ❌ Failed | ⏭️ Skipped |
 |---|---|---|---|---|---|
-| 3 | 0 | 20 | 0 | 1 | 0 |
+| 5 | 0 | 16 | 0 | 3 | 0 |
 
 ## Connected accounts
 | Platform | Account | Eligible | Followers / Subs | Aaj published |
 |---|---|---|---|---|
-| facebook | The night crew | ✅ | 5 | 3 |
+| facebook | The night crew | ✅ | 5 | 5 |
 
 ## Schedule (aaj)
 | # | Time (IST) | Channel | Status | Content | Link / Error |
@@ -18,10 +18,10 @@ _Last update: 22 Nov 2026, 4:35 am IST · auto-refresh har ghante_
 | 2 | 1:00 am | The night crew | ✅ published | pexels:1112221 | https://www.facebook.com/reel/3014141554572923/ |
 | 3 | 2:00 am | The night crew | ❌ failed (1) | – | `Bad control character in string literal in JSON at position 149 (line 1 column 150)` |
 | 4 | 3:00 am | The night crew | ✅ published | pexels:27155334 | https://www.facebook.com/reel/29444257758548373/ |
-| 5 | 4:00 am | The night crew | 🕒 pending | – |  |
-| 6 | 5:00 am | The night crew | 🕒 pending | – |  |
-| 7 | 6:00 am | The night crew | 🕒 pending | – |  |
-| 8 | 7:00 am | The night crew | 🕒 pending | – |  |
+| 5 | 4:00 am | The night crew | ❌ failed (1) | – | `Bad control character in string literal in JSON at position 141 (line 1 column 142)` |
+| 6 | 5:00 am | The night crew | ✅ published | pexels:4883833 | https://www.facebook.com/reel/1171531802499272/ |
+| 7 | 6:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading '0')` |
+| 8 | 7:00 am | The night crew | ✅ published | pexels:38442100 | https://www.facebook.com/reel/1460236203835775/ |
 | 9 | 8:00 am | The night crew | 🕒 pending | – |  |
 | 10 | 9:00 am | The night crew | 🕒 pending | – |  |
 | 11 | 10:00 am | The night crew | 🕒 pending | – |  |
@@ -46,6 +46,8 @@ _Last update: 22 Nov 2026, 4:35 am IST · auto-refresh har ghante_
 Inpe apni reaction/commentary video banao, phir `content/approved.json` me license ke saath daalo.
 
 ## API errors (latest)
+- 22 Nov 2026, 8:32 am: The night crew: Cannot read properties of null (reading '0')
+- 22 Nov 2026, 8:31 am: The night crew: Bad control character in string literal in JSON at position 141 (line 1 column 142)
 - 22 Nov 2026, 4:35 am: The night crew: Bad control character in string literal in JSON at position 149 (line 1 column 150)
 - 21 Nov 2026, 11:26 pm: The night crew: Bad control character in string literal in JSON at position 209 (line 1 column 210)
 - 21 Nov 2026, 11:26 pm: The night crew: Bad control character in string literal in JSON at position 183 (line 1 column 184)
