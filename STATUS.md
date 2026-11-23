@@ -1,15 +1,15 @@
 # 📊 TheNightCrew Publishing Dashboard
-_Last update: 23 Nov 2026, 5:42 am IST · auto-refresh har ghante_
+_Last update: 23 Nov 2026, 2:25 pm IST · auto-refresh har ghante_
 
 ## Aaj (2026-11-23) — target 24
 | ✅ Published | ⏳ Processing | 🕒 Pending | 🔁 Retry | ❌ Failed | ⏭️ Skipped |
 |---|---|---|---|---|---|
-| 2 | 0 | 20 | 0 | 2 | 0 |
+| 6 | 0 | 16 | 0 | 2 | 0 |
 
 ## Connected accounts
 | Platform | Account | Eligible | Followers / Subs | Aaj published |
 |---|---|---|---|---|
-| facebook | The night crew | ✅ | 5 | 2 |
+| facebook | The night crew | ✅ | 5 | 6 |
 
 ## Schedule (aaj)
 | # | Time (IST) | Channel | Status | Content | Link / Error |
@@ -18,10 +18,10 @@ _Last update: 23 Nov 2026, 5:42 am IST · auto-refresh har ghante_
 | 2 | 1:00 am | The night crew | ✅ published | pexels:28214713 | https://www.facebook.com/reel/2827115391037079/ |
 | 3 | 2:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading 'match')` |
 | 4 | 3:00 am | The night crew | ❌ failed (1) | – | `Bad control character in string literal in JSON at position 199 (line 1 column 200)` |
-| 5 | 4:00 am | The night crew | 🕒 pending | – |  |
-| 6 | 5:00 am | The night crew | 🕒 pending | – |  |
-| 7 | 6:00 am | The night crew | 🕒 pending | – |  |
-| 8 | 7:00 am | The night crew | 🕒 pending | – |  |
+| 5 | 4:00 am | The night crew | ✅ published | pexels:36741984 | https://www.facebook.com/reel/1809011443664533/ |
+| 6 | 5:00 am | The night crew | ✅ published | pexels:41041623 | https://www.facebook.com/reel/2214600156161830/ |
+| 7 | 6:00 am | The night crew | ✅ published | pexels:16304316 | https://www.facebook.com/reel/1018031297286036/ |
+| 8 | 7:00 am | The night crew | ✅ published | pexels:28153809 | https://www.facebook.com/reel/1475419434548111/ |
 | 9 | 8:00 am | The night crew | 🕒 pending | – |  |
 | 10 | 9:00 am | The night crew | 🕒 pending | – |  |
 | 11 | 10:00 am | The night crew | 🕒 pending | – |  |

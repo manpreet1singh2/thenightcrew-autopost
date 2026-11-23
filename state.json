@@ -545,8 +545,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:36741984",
+     "sourceKind": "stock",
+     "title": "GTA 6 at 60 FPS on PC: Could It Cost Less Than Expected?",
+     "remoteId": "1809011443664533",
+     "publishedAt": 1795424106958,
+     "permalink": "https://www.facebook.com/reel/1809011443664533/"
     },
     {
      "i": 5,
@@ -555,8 +561,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:41041623",
+     "sourceKind": "stock",
+     "title": "Whatnot Sets Seller Commission to 0% for Black Friday Weekend",
+     "remoteId": "2214600156161830",
+     "publishedAt": 1795424120792,
+     "permalink": "https://www.facebook.com/reel/2214600156161830/"
     },
     {
      "i": 6,
@@ -565,8 +577,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:16304316",
+     "sourceKind": "stock",
+     "title": "GTA 6 Xbox Build Leak: The 209 GB Files & PC Port Talk",
+     "remoteId": "1018031297286036",
+     "publishedAt": 1795424130996,
+     "permalink": "https://www.facebook.com/reel/1018031297286036/"
     },
     {
      "i": 7,
@@ -575,8 +593,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:28153809",
+     "sourceKind": "stock",
+     "title": "Salameh Gives His $44K GTA 6 Prize to His Mom",
+     "remoteId": "1475419434548111",
+     "publishedAt": 1795424145545,
+     "permalink": "https://www.facebook.com/reel/1475419434548111/"
     },
     {
      "i": 8,
@@ -778,7 +802,15 @@
    "pexels:40760259",
    "caba92a7bd3685a583d2968c8b34a34369445cb4336d68087cdbded50e98d23c",
    "pexels:28214713",
-   "31bf1a58df18d690f7a2a0fd3559e509c3e7fcfd98933c807f921755418917d7"
+   "31bf1a58df18d690f7a2a0fd3559e509c3e7fcfd98933c807f921755418917d7",
+   "pexels:36741984",
+   "e4282286857f3874b68e41965ac145bcebfad8695e7bc8a25839177cc9a1e8d7",
+   "pexels:41041623",
+   "217171a1486e4e007afe5df8a92d40c8b03f0444bc222f872e837d5748e798a4",
+   "pexels:16304316",
+   "f03e9ecdeafe52a550fbdc272c5f94b1adc1cef910c9cfcae9cc53f7de6419df",
+   "pexels:28153809",
+   "2f5ba4992b9232276be503a7976d2d2ffc31ea71a2b85a5d44402374778c5b02"
   ]
  },
  "discovered": [],
@@ -837,7 +869,7 @@
   }
  ],
  "accounts": {
-  "fetchedAt": 1795392711056,
+  "fetchedAt": 1795424090704,
   "list": [
    {
     "key": "facebook:628058697050691",
