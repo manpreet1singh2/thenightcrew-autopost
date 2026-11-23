@@ -767,6 +767,262 @@
     "youtubeUnits": 0,
     "instagram": {}
    }
+  },
+  "2026-11-24": {
+   "slots": [
+    {
+     "i": 0,
+     "at": 1795458600000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:10385815",
+     "sourceKind": "stock",
+     "title": "GTA 6 Hacker Released on Licence, BBC Reports",
+     "remoteId": "2437734243708456",
+     "publishedAt": 1795468446476,
+     "permalink": "https://www.facebook.com/reel/2437734243708456/"
+    },
+    {
+     "i": 1,
+     "at": 1795462200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "failed",
+     "attempts": 1,
+     "error": "Bad control character in string literal in JSON at position 202 (line 1 column 203)"
+    },
+    {
+     "i": 2,
+     "at": 1795465800000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading '0')"
+    },
+    {
+     "i": 3,
+     "at": 1795469400000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 4,
+     "at": 1795473000000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 5,
+     "at": 1795476600000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 6,
+     "at": 1795480200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 7,
+     "at": 1795483800000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 8,
+     "at": 1795487400000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 9,
+     "at": 1795491000000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 10,
+     "at": 1795494600000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 11,
+     "at": 1795498200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 12,
+     "at": 1795501800000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 13,
+     "at": 1795505400000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 14,
+     "at": 1795509000000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 15,
+     "at": 1795512600000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 16,
+     "at": 1795516200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 17,
+     "at": 1795519800000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 18,
+     "at": 1795523400000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 19,
+     "at": 1795527000000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 20,
+     "at": 1795530600000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 21,
+     "at": 1795534200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 22,
+     "at": 1795537800000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "GTA 6",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 23,
+     "at": 1795541400000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "MrBeast",
+     "status": "pending",
+     "attempts": 0
+    }
+   ],
+   "quota": {
+    "youtubeUnits": 0,
+    "instagram": {}
+   }
   }
  },
  "posted": {
@@ -810,7 +1066,9 @@
    "pexels:16304316",
    "f03e9ecdeafe52a550fbdc272c5f94b1adc1cef910c9cfcae9cc53f7de6419df",
    "pexels:28153809",
-   "2f5ba4992b9232276be503a7976d2d2ffc31ea71a2b85a5d44402374778c5b02"
+   "2f5ba4992b9232276be503a7976d2d2ffc31ea71a2b85a5d44402374778c5b02",
+   "pexels:10385815",
+   "519655f775eb72a8c3188c29942605f593400f429f6c99258fbef4176657e33e"
   ]
  },
  "discovered": [],
@@ -866,10 +1124,18 @@
   {
    "at": 1795392751637,
    "msg": "The night crew: Bad control character in string literal in JSON at position 199 (line 1 column 200)"
+  },
+  {
+   "at": 1795468451483,
+   "msg": "The night crew: Bad control character in string literal in JSON at position 202 (line 1 column 203)"
+  },
+  {
+   "at": 1795468461943,
+   "msg": "The night crew: Cannot read properties of null (reading '0')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795424090704,
+  "fetchedAt": 1795468432727,
   "list": [
    {
     "key": "facebook:628058697050691",
@@ -885,5 +1151,5 @@
    }
   ]
  },
- "discoveredOn": "2026-11-23"
+ "discoveredOn": "2026-11-24"
 }
