@@ -879,8 +879,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:38672896",
+     "sourceKind": "stock",
+     "title": "MrBeast: Simon’s Holiday Campaign Chapter Is Here",
+     "remoteId": "1990507688612749",
+     "publishedAt": 1795541412637,
+     "permalink": "https://www.facebook.com/reel/1990507688612749/"
     },
     {
      "i": 8,
@@ -889,8 +895,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:9724998",
+     "sourceKind": "stock",
+     "title": "GTA 6 PC recompilation tracker? 👀",
+     "remoteId": "1484656673541839",
+     "publishedAt": 1795541433129,
+     "permalink": "https://www.facebook.com/reel/1484656673541839/"
     },
     {
      "i": 9,
@@ -899,8 +911,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:35614706",
+     "sourceKind": "stock",
+     "title": "MrBeast Car Crash Rumor: What’s Known?",
+     "remoteId": "1515164820432346",
+     "publishedAt": 1795541442005,
+     "permalink": "https://www.facebook.com/reel/1515164820432346/"
     },
     {
      "i": 10,
@@ -909,8 +927,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:29484562",
+     "sourceKind": "stock",
+     "title": "GTA 6 Saving: Can You Save During Missions?",
+     "remoteId": "1461896019247092",
+     "publishedAt": 1795541450275,
+     "permalink": "https://www.facebook.com/reel/1461896019247092/"
     },
     {
      "i": 11,
@@ -1100,7 +1124,15 @@
    "pexels:6003990",
    "0f6d7fd808a46305e8ed66196147c431b2f73c96191bc5611427b2570b140cff",
    "pexels:29834228",
-   "322e3ec6293d36cc85e1b55528ed0c7b736b7f5b5ec76f31ea074f4abc4959e1"
+   "322e3ec6293d36cc85e1b55528ed0c7b736b7f5b5ec76f31ea074f4abc4959e1",
+   "pexels:38672896",
+   "d8eff988470a20996498e38e742cca9465d3834304536578b62937e98487071e",
+   "pexels:9724998",
+   "f1881559d1fe4a9a688df1e7a06299373b26c9dd43ab88d3912d5a37f7bc98be",
+   "pexels:35614706",
+   "317e668ca1aa9586f60351cff9f6e4a9e454011a90b758f3eb984bd1a7a96e59",
+   "pexels:29484562",
+   "090ce11ed1fa03a3e1cd5ad7d7d626de0033de6954cb07e7ae25478068732adf"
   ]
  },
  "discovered": [],
@@ -1167,7 +1199,7 @@
   }
  ],
  "accounts": {
-  "fetchedAt": 1795499693311,
+  "fetchedAt": 1795541398336,
   "list": [
    {
     "key": "facebook:628058697050691",

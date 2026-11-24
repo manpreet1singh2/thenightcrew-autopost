@@ -1,15 +1,15 @@
 # 📊 TheNightCrew Publishing Dashboard
-_Last update: 24 Nov 2026, 11:25 am IST · auto-refresh har ghante_
+_Last update: 24 Nov 2026, 11:00 pm IST · auto-refresh har ghante_
 
 ## Aaj (2026-11-24) — target 24
 | ✅ Published | ⏳ Processing | 🕒 Pending | 🔁 Retry | ❌ Failed | ⏭️ Skipped |
 |---|---|---|---|---|---|
-| 5 | 0 | 17 | 0 | 2 | 0 |
+| 9 | 0 | 13 | 0 | 2 | 0 |
 
 ## Connected accounts
 | Platform | Account | Eligible | Followers / Subs | Aaj published |
 |---|---|---|---|---|
-| facebook | The night crew | ✅ | 5 | 5 |
+| facebook | The night crew | ✅ | 5 | 9 |
 
 ## Schedule (aaj)
 | # | Time (IST) | Channel | Status | Content | Link / Error |
@@ -21,10 +21,10 @@ _Last update: 24 Nov 2026, 11:25 am IST · auto-refresh har ghante_
 | 5 | 4:00 am | The night crew | ✅ published | pexels:9921096 | https://www.facebook.com/reel/2288444901730172/ |
 | 6 | 5:00 am | The night crew | ✅ published | pexels:6003990 | https://www.facebook.com/reel/1483412213739340/ |
 | 7 | 6:00 am | The night crew | ✅ published | pexels:29834228 | https://www.facebook.com/reel/1679099720504485/ |
-| 8 | 7:00 am | The night crew | 🕒 pending | – |  |
-| 9 | 8:00 am | The night crew | 🕒 pending | – |  |
-| 10 | 9:00 am | The night crew | 🕒 pending | – |  |
-| 11 | 10:00 am | The night crew | 🕒 pending | – |  |
+| 8 | 7:00 am | The night crew | ✅ published | pexels:38672896 | https://www.facebook.com/reel/1990507688612749/ |
+| 9 | 8:00 am | The night crew | ✅ published | pexels:9724998 | https://www.facebook.com/reel/1484656673541839/ |
+| 10 | 9:00 am | The night crew | ✅ published | pexels:35614706 | https://www.facebook.com/reel/1515164820432346/ |
+| 11 | 10:00 am | The night crew | ✅ published | pexels:29484562 | https://www.facebook.com/reel/1461896019247092/ |
 | 12 | 11:00 am | The night crew | 🕒 pending | – |  |
 | 13 | 12:00 pm | The night crew | 🕒 pending | – |  |
 | 14 | 1:00 pm | The night crew | 🕒 pending | – |  |
