@@ -815,8 +815,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:8550211",
+     "sourceKind": "stock",
+     "title": "Simon’s Campaign Gets a Holiday Chapter",
+     "remoteId": "1128154783447250",
+     "publishedAt": 1795499707237,
+     "permalink": "https://www.facebook.com/reel/1128154783447250/"
     },
     {
      "i": 4,
@@ -825,8 +831,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:9921096",
+     "sourceKind": "stock",
+     "title": "GTA 6 Goes Hollywood: Jaws to Die Hard References",
+     "remoteId": "2288444901730172",
+     "publishedAt": 1795499723019,
+     "permalink": "https://www.facebook.com/reel/2288444901730172/"
     },
     {
      "i": 5,
@@ -835,8 +847,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:6003990",
+     "sourceKind": "stock",
+     "title": "MrBeast aur 4 Lakh Ka Monitor? 😱",
+     "remoteId": "1483412213739340",
+     "publishedAt": 1795499733157,
+     "permalink": "https://www.facebook.com/reel/1483412213739340/"
     },
     {
      "i": 6,
@@ -845,8 +863,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:29834228",
+     "sourceKind": "stock",
+     "title": "GTA 6 Makes PlayStation History?",
+     "remoteId": "1679099720504485",
+     "publishedAt": 1795499741622,
+     "permalink": "https://www.facebook.com/reel/1679099720504485/"
     },
     {
      "i": 7,
@@ -1068,7 +1092,15 @@
    "pexels:28153809",
    "2f5ba4992b9232276be503a7976d2d2ffc31ea71a2b85a5d44402374778c5b02",
    "pexels:10385815",
-   "519655f775eb72a8c3188c29942605f593400f429f6c99258fbef4176657e33e"
+   "519655f775eb72a8c3188c29942605f593400f429f6c99258fbef4176657e33e",
+   "pexels:8550211",
+   "5da50f604ee08a99f52f07b3c8cbd7afba779c2889424d67229657110335afa8",
+   "pexels:9921096",
+   "88186403522cc3d12eeb43cc586953e3c999353c4a1e00045f44b2856ad924d3",
+   "pexels:6003990",
+   "0f6d7fd808a46305e8ed66196147c431b2f73c96191bc5611427b2570b140cff",
+   "pexels:29834228",
+   "322e3ec6293d36cc85e1b55528ed0c7b736b7f5b5ec76f31ea074f4abc4959e1"
   ]
  },
  "discovered": [],
@@ -1135,7 +1167,7 @@
   }
  ],
  "accounts": {
-  "fetchedAt": 1795468432727,
+  "fetchedAt": 1795499693311,
   "list": [
    {
     "key": "facebook:628058697050691",
