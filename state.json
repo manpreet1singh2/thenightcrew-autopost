@@ -1243,8 +1243,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 13,
@@ -1253,8 +1254,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 14,
@@ -1263,8 +1265,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 15,
@@ -1273,8 +1276,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 16,
@@ -1522,10 +1526,26 @@
   {
    "at": 1795625894469,
    "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795625934106,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795625944098,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795627369144,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795627384896,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795625848303,
+  "fetchedAt": 1795625923868,
   "list": [
    {
     "key": "facebook:628058697050691",
