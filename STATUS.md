@@ -1,10 +1,10 @@
 # 📊 TheNightCrew Publishing Dashboard
-_Last update: 25 Nov 2026, 6:08 pm IST · auto-refresh har ghante_
+_Last update: 25 Nov 2026, 10:28 pm IST · auto-refresh har ghante_
 
 ## Aaj (2026-11-25) — target 24
 | ✅ Published | ⏳ Processing | 🕒 Pending | 🔁 Retry | ❌ Failed | ⏭️ Skipped |
 |---|---|---|---|---|---|
-| 6 | 0 | 16 | 0 | 2 | 0 |
+| 6 | 0 | 12 | 0 | 6 | 0 |
 
 ## Connected accounts
 | Platform | Account | Eligible | Followers / Subs | Aaj published |
@@ -22,10 +22,10 @@ _Last update: 25 Nov 2026, 6:08 pm IST · auto-refresh har ghante_
 | 6 | 5:00 am | The night crew | ✅ published | pexels:8724248 | https://www.facebook.com/reel/2069620606989922/ |
 | 7 | 6:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading '0')` |
 | 8 | 7:00 am | The night crew | ✅ published | pexels:39753048 | https://www.facebook.com/reel/3683532281801324/ |
-| 9 | 8:00 am | The night crew | 🕒 pending | – |  |
-| 10 | 9:00 am | The night crew | 🕒 pending | – |  |
-| 11 | 10:00 am | The night crew | 🕒 pending | – |  |
-| 12 | 11:00 am | The night crew | 🕒 pending | – |  |
+| 9 | 8:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading 'match')` |
+| 10 | 9:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading 'match')` |
+| 11 | 10:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading 'match')` |
+| 12 | 11:00 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading 'match')` |
 | 13 | 12:00 pm | The night crew | 🕒 pending | – |  |
 | 14 | 1:00 pm | The night crew | 🕒 pending | – |  |
 | 15 | 2:00 pm | The night crew | 🕒 pending | – |  |
@@ -46,13 +46,13 @@ _Last update: 25 Nov 2026, 6:08 pm IST · auto-refresh har ghante_
 Inpe apni reaction/commentary video banao, phir `content/approved.json` me license ke saath daalo.
 
 ## API errors (latest)
+- 25 Nov 2026, 10:28 pm: The night crew: Cannot read properties of null (reading 'match')
+- 25 Nov 2026, 10:28 pm: The night crew: Cannot read properties of null (reading 'match')
+- 25 Nov 2026, 10:27 pm: The night crew: Cannot read properties of null (reading 'match')
+- 25 Nov 2026, 10:27 pm: The night crew: Cannot read properties of null (reading 'match')
 - 25 Nov 2026, 6:08 pm: The night crew: Cannot read properties of null (reading '0')
 - 25 Nov 2026, 7:46 am: The night crew: Bad control character in string literal in JSON at position 91 (line 1 column 92)
 - 24 Nov 2026, 2:44 am: The night crew: Cannot read properties of null (reading '0')
 - 24 Nov 2026, 2:44 am: The night crew: Bad control character in string literal in JSON at position 202 (line 1 column 203)
 - 23 Nov 2026, 5:42 am: The night crew: Bad control character in string literal in JSON at position 199 (line 1 column 200)
 - 23 Nov 2026, 5:42 am: The night crew: Cannot read properties of null (reading 'match')
-- 22 Nov 2026, 11:58 pm: The night crew: Bad control character in string literal in JSON at position 170 (line 1 column 171)
-- 22 Nov 2026, 11:58 pm: The night crew: Bad control character in string literal in JSON at position 165 (line 1 column 166)
-- 22 Nov 2026, 4:36 pm: The night crew: Cannot read properties of null (reading '0')
-- 22 Nov 2026, 8:32 am: The night crew: Cannot read properties of null (reading '0')
