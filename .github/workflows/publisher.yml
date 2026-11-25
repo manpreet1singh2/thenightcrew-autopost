@@ -51,9 +51,11 @@ jobs:
           STATE_DIR: state
           FB_USER_TOKEN: ${{ secrets.FB_USER_TOKEN }}
           LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
-          LINKEDIN_VERSION: "202510"
+          LINKEDIN_VERSION: "202609"
+          LINKEDIN_ORG_ID: "105949608"
+          LINKEDIN_DAILY_TIME: "10:00"
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'anthropic/claude-opus-5.5' }}
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
