@@ -50,6 +50,8 @@ jobs:
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry && '1' || '0' }}
           STATE_DIR: state
           FB_USER_TOKEN: ${{ secrets.FB_USER_TOKEN }}
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          LINKEDIN_VERSION: "202510"
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
