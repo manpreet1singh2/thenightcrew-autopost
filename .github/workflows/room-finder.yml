@@ -1,0 +1,33 @@
+name: room-finder
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: room-finder
+  cancel-in-progress: true
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Search public rental listings
+        run: node room-finder/search.mjs
+      - name: Save latest search report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mohali-room-finder-${{ github.run_number }}
+          path: room-finder-output/
+          if-no-files-found: warn
+          retention-days: 30
