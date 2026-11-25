@@ -8,6 +8,7 @@ import "../lib/envclean.js";
 import { connectedAccounts, CONFIG } from "../lib/accounts.js";
 import { approvedItems, stockItem, download } from "../lib/sources.js";
 import { captionFor } from "../lib/captions.js";
+import { publishLinkedInBrandPosts } from "../lib/linkedin.js";
 import { discover } from "../lib/discover.js";
 import { renderDashboard } from "../lib/dashboard.js";
 import { withRetry, TransientError, facebookPublish, facebookVerify, instagramPublish, instagramQuota, youtubePublish, youtubeVerify } from "../lib/publish.js";
@@ -188,7 +189,7 @@ async function verifySlot(slot) {
 }
 
 // ---------- run ----------
-try { await publishLinkedInDaily(); } catch (e) { err(`LinkedIn personal: ${e.message}`); }
+try { await publishLinkedInBrandPosts({ today, dayNumber: Number(today.slice(-2)), state, dryRun: DRY, log }); } catch (e) { err(`LinkedIn brand publishing: ${e.message}`); }
 const due = day.slots.filter((s) => ["pending", "retry"].includes(s.status) && s.at <= now + 5 * 60_000);
 const maxAttempts = CONFIG.maxAttempts || 3;
 const runLimit = Number(env.MAX_PER_RUN || (DRY ? 1 : 4));  // ek run me zyada se zyada itne (baaki agle ghante)
