@@ -1405,8 +1405,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 2,
@@ -1415,8 +1416,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 3,
@@ -1425,8 +1427,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:8724454",
+     "sourceKind": "stock",
+     "title": "MrBeast Flags Clipping as a Creator-Control Problem",
+     "remoteId": "1005221025393127",
+     "publishedAt": 1795645526574,
+     "permalink": "https://www.facebook.com/reel/1005221025393127/"
     },
     {
      "i": 4,
@@ -1712,7 +1720,9 @@
    "pexels:35471094",
    "f098e38dc6709c178f675345a4389c780ea7664572c913d83999e23dc28bf245",
    "pexels:39082814",
-   "95d6230a8935707f91e0bf3f37b8d3a42362df33bc7ec5e5ea548d5e29e088d6"
+   "95d6230a8935707f91e0bf3f37b8d3a42362df33bc7ec5e5ea548d5e29e088d6",
+   "pexels:8724454",
+   "b29d198cc82bc31add7583f0f4219a044e97a183f3533bc7b25b284cb74c29b6"
   ]
  },
  "discovered": [],
@@ -1824,10 +1834,18 @@
   {
    "at": 1795632867449,
    "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795645511463,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795645515123,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795632853830,
+  "fetchedAt": 1795645498740,
   "list": [
    {
     "key": "facebook:628058697050691",
