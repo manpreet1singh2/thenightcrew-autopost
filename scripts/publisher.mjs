@@ -8,6 +8,7 @@ import "../lib/envclean.js";
 import { connectedAccounts, CONFIG } from "../lib/accounts.js";
 import { approvedItems, stockItem, download } from "../lib/sources.js";
 import { captionFor } from "../lib/captions.js";
+import { publishLinkedInBrandPosts } from "../lib/linkedin.js";
 import { discover } from "../lib/discover.js";
 import { renderDashboard } from "../lib/dashboard.js";
 import { withRetry, TransientError, facebookPublish, facebookVerify, instagramPublish, instagramQuota, youtubePublish, youtubeVerify } from "../lib/publish.js";
@@ -81,6 +82,58 @@ async function headline(topic, n) {
   return list.length ? list[n % list.length] : topic;
 }
 
+// ---------- LinkedIn personal profile: roz ek professional text post ----------
+async function publishLinkedInDaily() {
+  const token = env.LINKEDIN_TOKEN;
+  if (!token) { log("ℹ️ LinkedIn skipped: LINKEDIN_TOKEN secret set nahi hai"); return; }
+  const dueAt = istTime(CONFIG.linkedinDailyTime || "10:00");
+  if (now < dueAt || state.linkedinDaily?.date === today) return;
+
+  const key = "linkedin:personal";
+  const used = new Set(state.posted[key] || []);
+  let item = approvedItems().find((it) => !used.has(it.sourceId));
+  if (!item && CONFIG.stock?.enabled) {
+    const topic = (CONFIG.topics || [])[0] || "AI and technology";
+    const h = await headline(topic, 0);
+    const q = (CONFIG.stockQueries || {})[topic] || CONFIG.stock.fallbackQuery || topic;
+    const stock = await stockItem(q, used);
+    if (stock) item = { ...stock, topic: h ? `${topic}: ${h}` : stock.topic };
+  }
+  if (!item) { log("ℹ️ LinkedIn: approved/stock content nahi mila; next hourly run me retry hoga"); return; }
+
+  const account = { name: "Personal LinkedIn profile" };
+  const cap = await withRetry(() => captionFor("linkedin", item, account));
+  if (DRY) {
+    log(`🧪 [linkedin] Personal profile ← ${item.sourceId}\n${cap.caption.slice(0, 3000)}`);
+    return;
+  }
+
+  const whoRes = await fetch("https://api.linkedin.com/v2/userinfo", { headers: { Authorization: `Bearer ${token}` } });
+  const who = await whoRes.json().catch(() => ({}));
+  if (!whoRes.ok || !who.sub) throw new Error(`LinkedIn profile lookup ${whoRes.status}: ${JSON.stringify(who).slice(0, 250)}`);
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "LinkedIn-Version": env.LINKEDIN_VERSION || "202510",
+    "X-Restli-Protocol-Version": "2.0.0",
+    "Content-Type": "application/json",
+  };
+  const body = {
+    author: `urn:li:person:${who.sub}`,
+    commentary: cap.caption.slice(0, 3000),
+    visibility: "PUBLIC",
+    distribution: { feedDistribution: "MAIN_FEED", targetEntities: [], thirdPartyDistributionChannels: [] },
+    lifecycleState: "PUBLISHED",
+    isReshareDisabledByAuthor: false,
+  };
+  const response = await fetch("https://api.linkedin.com/rest/posts", { method: "POST", headers, body: JSON.stringify(body) });
+  if (!response.ok) throw new Error(`LinkedIn publish ${response.status}: ${(await response.text()).slice(0, 300)}`);
+  const remoteId = response.headers.get("x-restli-id") || "";
+  state.linkedinDaily = { date: today, status: "published", remoteId, sourceId: item.sourceId, publishedAt: Date.now() };
+  (state.posted[key] ||= []).push(item.sourceId);
+  log(`📤 [linkedin] Personal profile: published ${remoteId}`);
+}
+
 // ---------- ek slot publish ----------
 async function pickItem(acc, slot) {
   const used = new Set(state.posted[acc.key] || []);
@@ -136,6 +189,7 @@ async function verifySlot(slot) {
 }
 
 // ---------- run ----------
+try { await publishLinkedInBrandPosts({ today, dayNumber: Number(today.slice(-2)), state, dryRun: DRY, log }); } catch (e) { err(`LinkedIn brand publishing: ${e.message}`); }
 const due = day.slots.filter((s) => ["pending", "retry"].includes(s.status) && s.at <= now + 5 * 60_000);
 const maxAttempts = CONFIG.maxAttempts || 3;
 const runLimit = Number(env.MAX_PER_RUN || (DRY ? 1 : 4));  // ek run me zyada se zyada itne (baaki agle ghante)
