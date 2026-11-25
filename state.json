@@ -1287,8 +1287,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 17,
@@ -1297,8 +1298,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:7688647",
+     "sourceKind": "stock",
+     "title": "MrBeast + Prime Video December 2026? 👀",
+     "remoteId": "1170364991994130",
+     "publishedAt": 1795627419884,
+     "permalink": "https://www.facebook.com/reel/1170364991994130/"
     },
     {
      "i": 18,
@@ -1307,8 +1314,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:35471094",
+     "sourceKind": "stock",
+     "title": "GTA 6 Scavenger Hunt Erupts Online",
+     "remoteId": "1096469846764203",
+     "publishedAt": 1795627432092,
+     "permalink": "https://www.facebook.com/reel/1096469846764203/"
     },
     {
      "i": 19,
@@ -1317,8 +1330,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:39082814",
+     "sourceKind": "stock",
+     "title": "MrBeast and Simon just dropped a holiday chapter 🎄",
+     "remoteId": "1801008380951581",
+     "publishedAt": 1795627462057,
+     "permalink": "https://www.facebook.com/reel/1801008380951581/"
     },
     {
      "i": 20,
@@ -1438,7 +1457,13 @@
    "pexels:8724248",
    "0b9892548d0a5bddb38b2ec4d34a55319a9be4cf4e81a148d36bcc73e1d277c6",
    "pexels:39753048",
-   "2581b9eff062e38195e3a978e2365f2d8be1d2b29228c6a083df4406a477bf64"
+   "2581b9eff062e38195e3a978e2365f2d8be1d2b29228c6a083df4406a477bf64",
+   "pexels:7688647",
+   "1a21ad9526ebd8d25e497d47c087ced5a7d2234a32fd659ef90182ee63173dc9",
+   "pexels:35471094",
+   "f098e38dc6709c178f675345a4389c780ea7664572c913d83999e23dc28bf245",
+   "pexels:39082814",
+   "95d6230a8935707f91e0bf3f37b8d3a42362df33bc7ec5e5ea548d5e29e088d6"
   ]
  },
  "discovered": [],
@@ -1542,10 +1567,14 @@
   {
    "at": 1795627384896,
    "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795627407154,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795625923868,
+  "fetchedAt": 1795627396896,
   "list": [
    {
     "key": "facebook:628058697050691",
