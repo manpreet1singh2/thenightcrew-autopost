@@ -95,7 +95,7 @@ export async function run(ctx) {
       for (const it of items) if (!listings.has(it.key)) listings.set(it.key, it);
     } catch (e) {
       pages.push({ url, status: e.kind === "not_found" ? "not_found" : e.kind || "error", error: e.message });
-      if (e.kind === "blocked") break; // stop hammering a site that is blocking us
+      if (e.kind === "blocked" || e.kind === "budget") break; // stop hammering a site that is blocking us
     }
   }
   return { pages, listings: [...listings.values()] };
