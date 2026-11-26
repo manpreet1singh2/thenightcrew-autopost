@@ -11,7 +11,7 @@ export class FetchError extends Error {
   constructor(message, { status = null, kind = "network", url = "" } = {}) {
     super(message);
     this.status = status;
-    this.kind = kind; // network | http | blocked | not_found | robots | parse
+    this.kind = kind; // network | http | blocked | not_found | robots | parse | budget
     this.url = url;
   }
 }
@@ -35,8 +35,9 @@ export function looksBlocked(status, body) {
   return body.length < 20000 && BLOCK_PATTERNS.test(body);
 }
 
-export async function fetchText(url, { gap = MIN_GAP_MS, attempts = MAX_ATTEMPTS, fetchImpl = fetch, robots = null } = {}) {
+export async function fetchText(url, { gap = MIN_GAP_MS, attempts = MAX_ATTEMPTS, fetchImpl = fetch, robots = null, deadline = null } = {}) {
   const u = new URL(url);
+  if (deadline && Date.now() + gap > deadline) throw new FetchError("Run time budget reached; page not checked this run", { kind: "budget", url });
   if (robots && !robots.isAllowed(u.pathname + u.search)) {
     throw new FetchError(`robots.txt disallows ${u.pathname}${u.search}`, { kind: "robots", url });
   }
