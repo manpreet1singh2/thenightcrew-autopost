@@ -32,8 +32,10 @@ export const EXTENDED_LOCALITIES = [
 // The extended sweep (and slower sources) run at most this often, even though the workflow fires every 5 minutes.
 export const EXTENDED_EVERY_MIN = 30;
 
-// Detail pages give coordinates (verified distance). Fetch at most this many per run.
-export const MAX_DETAIL_FETCHES = 20;
+// Listing pages give coordinates (verified distance). Fetch at most this many per run:
+// more on the quick core runs, fewer on the long 30-minute sweep. Over-budget listings are never fetched.
+export const MAX_DETAIL_FETCHES_CORE = 60;
+export const MAX_DETAIL_FETCHES_EXTENDED = 15;
 export const DETAIL_REFRESH_DAYS = 7;
 
 // A listing not seen on a successfully re-checked page this many times is marked "not seen recently" (never deleted).
