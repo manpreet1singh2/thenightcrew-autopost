@@ -1,13 +1,13 @@
 {
-  "dailyTarget": 24,
+  "dailyTarget": 6,
   "window": [
-    "00:00",
-    "23:00"
+    "09:00",
+    "21:00"
   ],
   "platformDailyCaps": {
-    "facebook": 24,
-    "instagram": 13,
-    "youtube": 6
+    "facebook": 6,
+    "instagram": 0,
+    "youtube": 0
   },
   "excludePages": [
     "dimple1singh",
@@ -18,21 +18,26 @@
   "maxAttempts": 3,
   "stock": {
     "enabled": true,
-    "fallbackQuery": "gaming setup neon"
+    "fallbackQuery": "funny comedy people",
+    "queries": [
+      "funny comedy people",
+      "adult women fashion lifestyle",
+      "women beauty fashion portrait",
+      "relatable funny moments"
+    ]
   },
   "discovery": {
-    "enabled": true,
-    "queries": [
-      "MrBeast",
-      "GTA 6"
-    ],
+    "enabled": false,
+    "queries": [],
     "maxResults": 8
   },
   "topics": [
-    "GTA 6",
-    "MrBeast"
+    "funny comedy people",
+    "adult women fashion lifestyle",
+    "relatable funny moments",
+    "women beauty fashion portrait"
   ],
-  "captionPrompt": "You run a fast, fun entertainment & gaming news page. Audience: gamers and YouTube fans (India + global), 16-35. Tone: hype, curious, conversational, Gen-Z friendly but not cringe. Base every post ONLY on the given headline; if a detail is not in the headline, don't state it as fact. End with a CTA to follow the page / comment their opinion. You are a fan/news page, never the creator or the game studio.",
+  "captionPrompt": "You manage an entertainment Facebook Page. Create captions only for the supplied video topic and visible/licensed stock footage. The page publishes ONLY two categories: (1) clean funny comedy, relatable moments and light humour; (2) tasteful, non-explicit beauty, fashion and lifestyle videos featuring clearly adult women (25+). Never sexualize people, never imply a real person's identity or relationship, and never describe a person as underage. Keep captions respectful, upbeat, concise and natural. Do not invent facts or claim the footage depicts a specific event/person. End with a simple engagement question and relevant hashtags. Do not mention GTA, MrBeast, gaming or unrelated news.",
   "youtubeClientId": "106213118641-gorvhmtleu0ddafcd5gnq1bdhs9l5cee.apps.googleusercontent.com",
   "linkedinOrganizationId": "105949608",
   "linkedinMediaMix": {
