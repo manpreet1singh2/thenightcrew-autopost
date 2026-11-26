@@ -1443,8 +1443,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 5,
@@ -1453,8 +1454,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 6,
@@ -1463,8 +1465,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading '0')"
     },
     {
      "i": 7,
@@ -1473,8 +1476,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:34659735",
+     "sourceKind": "stock",
+     "title": "Clipping Is Becoming a Creator-Control Problem",
+     "remoteId": "1463223035355087",
+     "publishedAt": 1795669017610,
+     "permalink": "https://www.facebook.com/reel/1463223035355087/"
     },
     {
      "i": 8,
@@ -1722,7 +1731,9 @@
    "pexels:39082814",
    "95d6230a8935707f91e0bf3f37b8d3a42362df33bc7ec5e5ea548d5e29e088d6",
    "pexels:8724454",
-   "b29d198cc82bc31add7583f0f4219a044e97a183f3533bc7b25b284cb74c29b6"
+   "b29d198cc82bc31add7583f0f4219a044e97a183f3533bc7b25b284cb74c29b6",
+   "pexels:34659735",
+   "5f11f9bc36e4bc1f84081c6cdb067aac9af15027a519159d392abd140861d4c5"
   ]
  },
  "discovered": [],
@@ -1842,10 +1853,22 @@
   {
    "at": 1795645515123,
    "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795668985844,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795668997462,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795669006387,
+   "msg": "The night crew: Cannot read properties of null (reading '0')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795645498740,
+  "fetchedAt": 1795668967860,
   "list": [
    {
     "key": "facebook:628058697050691",
