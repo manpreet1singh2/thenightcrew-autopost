@@ -31,7 +31,7 @@ export async function saveState(file, state) {
   await rename(tmp, file); // atomic replace: a crash never leaves a half-written state
 }
 
-const DETAIL_FIELDS = ["title", "url", "source", "sourceId", "locality", "address", "lat", "lng", "distanceKm", "roomType", "furnishing", "occupancy", "deposit", "brokerage", "amenities", "food", "tenantNotes", "listedBy", "listingDate", "updatedDate", "sourceAvailability", "detailsFetchedAt", "rentNote"];
+const DETAIL_FIELDS = ["title", "url", "source", "sourceId", "locality", "address", "lat", "lng", "distanceKm", "roomType", "furnishing", "occupancy", "deposit", "brokerage", "amenities", "food", "tenantNotes", "listedBy", "listingDate", "updatedDate", "sourceAvailability", "detailsFetchedAt", "rentNote", "listPrice", "detailRent"];
 
 /**
  * Merge this run's listings into state.
@@ -54,12 +54,21 @@ export function mergeRun(state, listings, okPages, now = new Date().toISOString(
       continue;
     }
     if (prev.status === "not_seen_recently") reappeared.push(it.key);
-    if (it.rent && prev.rent && it.rent !== prev.rent) {
-      priceChanges.push({ key: it.key, from: prev.rent, to: it.rent, at: now, meaningful: Math.abs(it.rent - prev.rent) >= PRICE_CHANGE_MIN_INR });
-      prev.rentHistory = [...(prev.rentHistory || []), { rent: it.rent, at: now }].slice(-20);
+    // Compare like with like: listing-page rent with listing-page rent, list-page price with list-page price.
+    // A first listing-page read that corrects a list-page price is a correction, not a price change.
+    const pair = it.detailRent ? (prev.detailRent ? [prev.detailRent, it.detailRent] : null)
+      : it.listPrice !== undefined || prev.listPrice !== undefined ? (it.listPrice && prev.listPrice ? [prev.listPrice, it.listPrice] : null)
+      : [prev.rent, it.rent];
+    const keepDetailRent = !it.detailRent && prev.detailRent && it.listPrice && it.listPrice === prev.listPrice;
+    const newRent = keepDetailRent ? prev.detailRent : it.rent ?? prev.rent;
+    if (pair && pair[0] && pair[1] && pair[0] !== pair[1]) {
+      priceChanges.push({ key: it.key, from: pair[0], to: pair[1], at: now, meaningful: Math.abs(pair[1] - pair[0]) >= PRICE_CHANGE_MIN_INR });
+    }
+    if (newRent && newRent !== prev.rent) {
+      prev.rentHistory = [...(prev.rentHistory || []), { rent: newRent, at: now, ...(pair ? {} : { note: "corrected from listing page" }) }].slice(-20);
     }
     Object.assign(prev, pick(it), {
-      rent: it.rent ?? prev.rent,
+      rent: newRent,
       lastSeen: now,
       missingRuns: 0,
       status: it.inaccessible ? "inaccessible" : "active",
