@@ -1,8 +1,8 @@
 // House4Ever adapter. Reads the public locality pages' schema.org JSON-LD (rent, title, locality)
 // and, for listings we have not looked at yet, the public listing page (coordinates, dates, furnishing).
 // robots.txt allows these pages for all user agents; owner contact details sit behind an "unlock" and are NOT accessed.
-import { CORE_LOCALITIES, EXTENDED_LOCALITIES, MAX_DETAIL_FETCHES, DETAIL_REFRESH_DAYS } from "../config.mjs";
-import { FetchError, cleanText, parseRent, normalizeUrl, normalizeLocality, distanceFromReference, classify } from "../lib.mjs";
+import { CORE_LOCALITIES, EXTENDED_LOCALITIES, MAX_DETAIL_FETCHES_CORE, MAX_DETAIL_FETCHES_EXTENDED, DETAIL_REFRESH_DAYS, MAX_RENT } from "../config.mjs";
+import { FetchError, cleanText, parseRent, normalizeUrl, normalizeLocality, distanceFromReference, classify, relevanceProblem } from "../lib.mjs";
 
 export const id = "house4ever";
 export const name = "House4Ever";
@@ -117,14 +117,16 @@ export async function run(ctx) {
     }
   }
 
-  // Detail pages: only for listings with no stored details, or stale ones, up to a per-run cap.
+  // Detail pages: only for in-budget, relevant listings with no stored details (or stale ones), up to a per-run cap.
+  const cap = ctx.extendedDue ? MAX_DETAIL_FETCHES_EXTENDED : MAX_DETAIL_FETCHES_CORE;
   let detailFetches = 0;
   const now = Date.now();
   for (const it of listings.values()) {
     const known = ctx.getKnown(it.key);
     const fresh = known?.detailsFetchedAt && now - Date.parse(known.detailsFetchedAt) < DETAIL_REFRESH_DAYS * 864e5;
     if (fresh) { Object.assign(it, pickDetails(known)); continue; }
-    if (detailFetches >= MAX_DETAIL_FETCHES) { if (known) Object.assign(it, pickDetails(known)); continue; }
+    const worthIt = (it.rent === null || it.rent <= MAX_RENT) && !relevanceProblem(it.title);
+    if (!worthIt || detailFetches >= cap) { if (known) Object.assign(it, pickDetails(known)); continue; }
     detailFetches++;
     try {
       const d = parseDetailPage(await ctx.fetch(it.url), it.url);
