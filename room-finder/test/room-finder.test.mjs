@@ -165,6 +165,25 @@ test("state: new only once, price changes tracked, missing listings marked but n
   assert.deepEqual(r3.newKeys, []);
   assert.deepEqual(r3.reappeared, ["house4ever:1"]);
   assert.ok(validateState(s));
+
+  // A first listing-page read that corrects the list-page price is not a "price change".
+  const k = { key: "house4ever:2", source: "House4Ever", url: "u2", title: "Room", rent: 6500, listPrice: 6500, foundOnPage: page };
+  mergeRun(s, [k], new Set([page]));
+  const r4 = mergeRun(s, [{ ...k, rent: 13500, detailRent: 13500 }], new Set([page]));
+  assert.deepEqual(r4.priceChanges, []);
+  assert.equal(s.listings["house4ever:2"].rent, 13500);
+  // A later run that only re-reads the list page (same list price) keeps the listing-page rent, no change.
+  const r5 = mergeRun(s, [{ ...k, rent: 6500 }], new Set([page]));
+  assert.deepEqual(r5.priceChanges, []);
+  assert.equal(s.listings["house4ever:2"].rent, 13500);
+  // A real change on the listing page is reported.
+  const r6 = mergeRun(s, [{ ...k, rent: 12000, detailRent: 12000 }], new Set([page]));
+  assert.equal(r6.priceChanges.length, 1);
+  assert.equal(r6.priceChanges[0].from, 13500);
+  // Legacy record without listPrice/detailRent (older state): no false change.
+  s.listings["house4ever:3"] = { key: "house4ever:3", rent: 9000, rentHistory: [], pages: [page], status: "active" };
+  const r7 = mergeRun(s, [{ key: "house4ever:3", url: "u3", rent: 7000, listPrice: 7000, foundOnPage: page }], new Set([page]));
+  assert.deepEqual(r7.priceChanges, []);
 });
 
 test("sorting: verified distance first, unverified never treated as zero", () => {
