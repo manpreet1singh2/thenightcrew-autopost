@@ -1,5 +1,7 @@
 name: room-finder
 
+# Mohali Room Finder — separate from the Facebook publisher workflows.
+# GitHub runs schedules on a best-effort basis: "every 5 minutes" can be delayed or skipped at busy times.
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -10,24 +12,60 @@ permissions:
 
 concurrency:
   group: room-finder
-  cancel-in-progress: true
+  # Let a running search finish (it may be mid-sweep); the next scheduled run waits instead.
+  cancel-in-progress: false
 
 jobs:
   search:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
+
+      - name: Restore previous search state
+        uses: actions/cache/restore@v5
+        with:
+          path: room-finder-state
+          key: room-finder-state-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            room-finder-state-
+
+      - name: Run tests
+        run: node --test room-finder/test/room-finder.test.mjs
+
       - name: Search public rental listings
+        id: search
         run: node room-finder/search.mjs
-      - name: Save latest search report
+
+      - name: Validate output files
         if: always()
-        uses: actions/upload-artifact@v4
+        run: node room-finder/validate.mjs
+
+      - name: Add report to run summary
+        if: always()
+        run: |
+          if [ -f room-finder-output/REPORT.md ]; then cat room-finder-output/REPORT.md >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - name: Save search state for the next run
+        # Saved even when the search step fails: the script never replaces listing history with empty results.
+        if: always() && hashFiles('room-finder-state/state.json') != ''
+        uses: actions/cache/save@v5
+        with:
+          path: room-finder-state
+          key: room-finder-state-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload search report
+        if: always()
+        uses: actions/upload-artifact@v6
         with:
           name: mohali-room-finder-${{ github.run_number }}
-          path: room-finder-output/
+          path: |
+            room-finder-output/
+            room-finder-state/state.json
           if-no-files-found: warn
-          retention-days: 30
+          # Short retention: a run every 5 minutes makes thousands of artifacts per month.
+          retention-days: 3
