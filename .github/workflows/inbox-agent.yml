@@ -1,0 +1,55 @@
+name: Inbox Agent (FB + Instagram auto-reply)
+
+# Har 10 minute mein saare Pages + IG DMs check, naye messages ka reply.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Sirf dikhao, reply mat bhejo (true/false)"
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: inbox-agent
+  cancel-in-progress: false
+
+jobs:
+  inbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests
+
+      - name: Reply to unread messages
+        env:
+          META_USER_TOKEN: ${{ secrets.META_USER_TOKEN }}
+          META_TOKEN_THENIGHTCREW: ${{ secrets.META_TOKEN_THENIGHTCREW }}
+          META_TOKEN_DIMPLESINGH: ${{ secrets.META_TOKEN_DIMPLESINGH }}
+          META_TOKEN_DIMPLE_A: ${{ secrets.META_TOKEN_DIMPLE_A }}
+          META_TOKEN_DIMPLE_B: ${{ secrets.META_TOKEN_DIMPLE_B }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openrouter/auto' }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}
+          EXCLUDE: ${{ vars.EXCLUDE }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: python inbox/agent.py
+
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "nightcrew-bot"
+          git config user.email "nightcrew-bot@users.noreply.github.com"
+          git add inbox/state.json || true
+          git diff --cached --quiet || git commit -q -m "inbox-agent: state [skip ci]"
+          git pull --rebase -q || true
+          git push -q || true
