@@ -1,7 +1,7 @@
 // Mohali Room Finder — entry point (run by .github/workflows/room-finder.yml).
 // Finds public rental-room / PG leads near CP67 Mall, Sector 67, Mohali, under the budget in config.mjs.
 import { mkdir, writeFile, copyFile } from "node:fs/promises";
-import { OUT_DIR, STATE_FILE, EXTENDED_EVERY_MIN, MAX_RENT } from "./config.mjs";
+import { OUT_DIR, STATE_FILE, EXTENDED_EVERY_MIN, MAX_RENT, RUN_BUDGET_MS } from "./config.mjs";
 import { log, fetchText, parseRobots, relevanceProblem, budgetProblem, distanceProblem } from "./lib.mjs";
 import { ADAPTERS, DISABLED_SOURCES } from "./sources/index.mjs";
 import { loadState, saveState, mergeRun, updateSourceHealth } from "./state.mjs";
@@ -25,22 +25,27 @@ async function getRobots(state, origin, fetchImpl) {
   }
 }
 
-function summarise(adapter, out) {
+export function summarise(adapter, out) {
   const list = out.pages.filter((p) => !p.detail);
   const ok = list.filter((p) => p.status === "ok").length;
   const nf = list.filter((p) => p.status === "not_found").length;
-  const bad = list.filter((p) => !["ok", "not_found"].includes(p.status));
+  const notChecked = list.filter((p) => p.status === "budget").length;
+  const bad = list.filter((p) => !["ok", "not_found", "budget"].includes(p.status));
   let status;
-  if (!list.length) status = "skipped";
-  else if (bad.length === 0 && ok > 0) status = "ok";
+  if (!list.length || (ok === 0 && !bad.length && notChecked)) status = "skipped";
+  else if (bad.length === 0 && !notChecked && ok > 0) status = "ok";
   else if (ok > 0) status = "partial";
   else if (bad.some((p) => p.status === "blocked")) status = "blocked";
   else status = "failed";
-  const error = status === "failed" && !bad.length && nf ? "No listing pages exist for the configured localities" : bad.length ? `${bad.length} page(s) failed: ${[...new Set(bad.map((b) => b.error))].slice(0, 3).join("; ")}` : null;
+  const errs = [];
+  if (status === "failed" && !bad.length && nf) errs.push("No listing pages exist for the configured localities");
+  if (bad.length) errs.push(`${bad.length} page(s) failed: ${[...new Set(bad.map((b) => b.error))].slice(0, 3).join("; ")}`);
+  if (notChecked) errs.push(`${notChecked} page(s) not checked: run time budget reached`);
+  const error = errs.join(" · ") || null;
   const detailErrors = out.pages.filter((p) => p.detail && !["ok"].includes(p.status));
   return {
     id: adapter.id, name: adapter.name, status, error,
-    pagesChecked: list.length, pagesOk: ok, pagesNotFound: nf,
+    pagesChecked: list.length - notChecked, pagesOk: ok, pagesNotFound: nf, pagesNotCheckedTimeBudget: notChecked,
     detailPagesFetched: out.pages.filter((p) => p.detail).length, detailPageErrors: detailErrors.length,
     listingCount: out.listings.length,
     pageErrors: [...bad, ...detailErrors].map((p) => ({ url: p.url, error: p.error })),
@@ -49,6 +54,7 @@ function summarise(adapter, out) {
 
 export async function main({ fetchImpl } = {}) {
   const now = new Date().toISOString();
+  const deadline = Date.now() + RUN_BUDGET_MS;
   await mkdir(OUT_DIR, { recursive: true });
   const { state, loaded, warning } = await loadState(STATE_FILE);
   if (warning) log("warn", warning);
@@ -71,7 +77,7 @@ export async function main({ fetchImpl } = {}) {
       const robots = await getRobots(state, adapter.origin, fetchImpl);
       const ctx = {
         extendedDue,
-        fetch: (url) => fetchText(url, { robots, ...(fetchImpl ? { fetchImpl } : {}) }),
+        fetch: (url) => fetchText(url, { robots, deadline, ...(fetchImpl ? { fetchImpl } : {}) }),
         getKnown: (key) => state.listings[key],
         log,
       };
