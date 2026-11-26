@@ -101,15 +101,16 @@ export async function main({ fetchImpl } = {}) {
 
   // Relevance + distance decide what is tracked in history; budget decides what is reported.
   const candidates = [];
+  const excludedSeen = [];
   for (const l of mergeExact(raw)) {
     const why = relevanceProblem(`${l.title} ${l.text || ""}`) || distanceProblem(l.distanceKm);
-    if (why) { bump(why); continue; }
+    if (why) { bump(why); excludedSeen.push({ item: (({ text, ...rest }) => rest)(l), reason: why }); continue; }
     candidates.push(l);
   }
 
   let changes = { newKeys: [], priceChanges: [], reappeared: [], notSeen: [] };
   if (anySuccess) {
-    changes = mergeRun(state, candidates.map(({ text, ...rest }) => rest), okPages, now);
+    changes = mergeRun(state, candidates.map(({ text, ...rest }) => rest), okPages, now, excludedSeen);
     state.lastSuccessfulCheck = now;
     if (extendedDue) state.lastExtendedSweep = now;
   } else {
