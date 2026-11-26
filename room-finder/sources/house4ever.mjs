@@ -1,7 +1,7 @@
 // House4Ever adapter. Reads the public locality pages' schema.org JSON-LD (rent, title, locality)
 // and, for listings we have not looked at yet, the public listing page (coordinates, dates, furnishing).
 // robots.txt allows these pages for all user agents; owner contact details sit behind an "unlock" and are NOT accessed.
-import { CORE_LOCALITIES, EXTENDED_LOCALITIES, MAX_DETAIL_FETCHES_CORE, MAX_DETAIL_FETCHES_EXTENDED, DETAIL_REFRESH_DAYS, MAX_RENT } from "../config.mjs";
+import { CORE_LOCALITIES, EXTENDED_LOCALITIES, MAX_DETAIL_FETCHES_CORE, MAX_DETAIL_FETCHES_EXTENDED, DETAIL_REFRESH_DAYS, MAX_RENT, MAX_PAGES_CORE, MAX_PAGES_EXTENDED } from "../config.mjs";
 import { FetchError, cleanText, parseRent, normalizeUrl, normalizeLocality, distanceFromReference, classify, relevanceProblem } from "../lib.mjs";
 
 export const id = "house4ever";
@@ -9,7 +9,6 @@ export const name = "House4Ever";
 export const enabled = true;
 export const origin = "https://house4ever.com";
 const PAGE_SIZE = 12;
-const MAX_PAGES = 4;
 
 function jsonLdBlocks(html) {
   const out = [];
@@ -88,8 +87,8 @@ export function parseDetailPage(html, url) {
 }
 
 export function plan({ extendedDue }) {
-  const locs = extendedDue ? [...CORE_LOCALITIES, ...EXTENDED_LOCALITIES] : CORE_LOCALITIES;
-  return locs.flatMap((loc) => ["rooms-for-rent", "pg-for-rent"].map((cat) => `${origin}/mohali/${loc}/${cat}/`));
+  const entries = (locs, maxPages) => locs.flatMap((loc) => ["rooms-for-rent", "pg-for-rent"].map((cat) => ({ url: `${origin}/mohali/${loc}/${cat}/`, maxPages })));
+  return [...entries(CORE_LOCALITIES, MAX_PAGES_CORE), ...(extendedDue ? entries(EXTENDED_LOCALITIES, MAX_PAGES_EXTENDED) : [])];
 }
 
 /**
@@ -99,8 +98,8 @@ export function plan({ extendedDue }) {
 export async function run(ctx) {
   const pages = [];
   const listings = new Map();
-  for (const base of plan(ctx)) {
-    for (let p = 1; p <= MAX_PAGES; p++) {
+  for (const { url: base, maxPages } of plan(ctx)) {
+    for (let p = 1; p <= maxPages; p++) {
       const url = p === 1 ? base : `${base}?page=${p}`;
       try {
         const html = await ctx.fetch(url);
@@ -144,9 +143,10 @@ export async function run(ctx) {
       if (d.rent) it.rent = d.rent;
       pages.push({ url: it.url, status: "ok", count: 1, detail: true });
     } catch (e) {
+      if (known) Object.assign(it, pickDetails(known));
+      if (e.kind === "budget") break;
       pages.push({ url: it.url, status: e.kind === "not_found" ? "not_found" : e.kind || "error", error: e.message, detail: true });
       if (e.kind === "not_found") it.inaccessible = true;
-      if (known) Object.assign(it, pickDetails(known));
     }
   }
   return { pages, listings: [...listings.values()] };
