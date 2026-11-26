@@ -1664,6 +1664,74 @@
     "youtubeUnits": 0,
     "instagram": {}
    }
+  },
+  "2026-11-27": {
+   "slots": [
+    {
+     "i": 0,
+     "at": 1795750200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "funny comedy people",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 1,
+     "at": 1795758840000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "adult women fashion lifestyle",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 2,
+     "at": 1795767480000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "relatable funny moments",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 3,
+     "at": 1795776120000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "women beauty fashion portrait",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 4,
+     "at": 1795784760000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "funny comedy people",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 5,
+     "at": 1795793400000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "adult women fashion lifestyle",
+     "status": "pending",
+     "attempts": 0
+    }
+   ],
+   "quota": {
+    "youtubeUnits": 0,
+    "instagram": {}
+   }
   }
  },
  "posted": {
@@ -1894,7 +1962,7 @@
   }
  ],
  "accounts": {
-  "fetchedAt": 1795705150779,
+  "fetchedAt": 1795736624442,
   "list": [
    {
     "key": "facebook:628058697050691",
@@ -1910,5 +1978,5 @@
    }
   ]
  },
- "discoveredOn": "2026-11-26"
+ "discoveredOn": "2026-11-27"
 }
