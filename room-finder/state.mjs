@@ -38,9 +38,16 @@ const DETAIL_FIELDS = ["title", "url", "source", "sourceId", "locality", "addres
  * okPages: Set of list-page URLs fetched and parsed successfully this run (used for "not seen" tracking).
  * Returns { newKeys, priceChanges, reappeared, notSeen }.
  */
-export function mergeRun(state, listings, okPages, now = new Date().toISOString()) {
+export function mergeRun(state, listings, okPages, now = new Date().toISOString(), excluded = []) {
   const seen = new Set();
   const newKeys = [], priceChanges = [], reappeared = [];
+  // Listings seen this run but filtered out (e.g. now verified outside the radius) are still "seen":
+  // known ones are updated and marked excluded, never counted as missing; unknown ones are not stored.
+  for (const { item, reason } of excluded) {
+    seen.add(item.key);
+    const prev = state.listings[item.key];
+    if (prev) Object.assign(prev, pick(item), { lastSeen: now, missingRuns: 0, status: "excluded", excludedReason: reason });
+  }
   for (const it of listings) {
     seen.add(it.key);
     const prev = state.listings[it.key];
