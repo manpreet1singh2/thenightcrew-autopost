@@ -1,5 +1,5 @@
 {
- "target": 24,
+ "target": 6,
  "days": {
   "2026-11-21": {
    "slots": [
@@ -1492,8 +1492,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 9,
@@ -1502,8 +1503,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:19985682",
+     "sourceKind": "stock",
+     "title": "Caption not available",
+     "remoteId": "1319439570306640",
+     "publishedAt": 1795705177511,
+     "permalink": "https://www.facebook.com/reel/1319439570306640/"
     },
     {
      "i": 10,
@@ -1512,8 +1519,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 11,
@@ -1522,8 +1530,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:26867682",
+     "sourceKind": "stock",
+     "title": "Fresh Chapters & Good Vibes",
+     "remoteId": "2267261437152668",
+     "publishedAt": 1795705210785,
+     "permalink": "https://www.facebook.com/reel/2267261437152668/"
     },
     {
      "i": 12,
@@ -1733,7 +1747,11 @@
    "pexels:8724454",
    "b29d198cc82bc31add7583f0f4219a044e97a183f3533bc7b25b284cb74c29b6",
    "pexels:34659735",
-   "5f11f9bc36e4bc1f84081c6cdb067aac9af15027a519159d392abd140861d4c5"
+   "5f11f9bc36e4bc1f84081c6cdb067aac9af15027a519159d392abd140861d4c5",
+   "pexels:19985682",
+   "8d9d8e66f2093be0a19bdcd4f5292415974982c3c9b17bc6ec21518ef6daf655",
+   "pexels:26867682",
+   "44b30eaf5c0db9cb84d219cff24d64937bedaf6613324fef5cb3a991417766b5"
   ]
  },
  "discovered": [],
@@ -1865,10 +1883,18 @@
   {
    "at": 1795669006387,
    "msg": "The night crew: Cannot read properties of null (reading '0')"
+  },
+  {
+   "at": 1795705163378,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795705193447,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795668967860,
+  "fetchedAt": 1795705150779,
   "list": [
    {
     "key": "facebook:628058697050691",
