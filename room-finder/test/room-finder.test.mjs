@@ -184,6 +184,17 @@ test("state: new only once, price changes tracked, missing listings marked but n
   s.listings["house4ever:3"] = { key: "house4ever:3", rent: 9000, rentHistory: [], pages: [page], status: "active" };
   const r7 = mergeRun(s, [{ key: "house4ever:3", url: "u3", rent: 7000, listPrice: 7000, foundOnPage: page }], new Set([page]));
   assert.deepEqual(r7.priceChanges, []);
+
+  // A stored listing later verified outside the radius is marked excluded, not "not seen".
+  const far = { key: "house4ever:4", source: "House4Ever", url: "u4", title: "Room", rent: 5000, foundOnPage: page };
+  mergeRun(s, [far], new Set([page]));
+  for (let i = 0; i < 4; i++) mergeRun(s, [], new Set([page]), undefined, [{ item: { ...far, distanceKm: 7.2 }, reason: "outside radius" }]);
+  assert.equal(s.listings["house4ever:4"].status, "excluded");
+  assert.equal(s.listings["house4ever:4"].missingRuns, 0);
+  assert.equal(s.listings["house4ever:4"].distanceKm, 7.2);
+  // Unknown excluded listings are not added to history.
+  mergeRun(s, [], new Set([page]), undefined, [{ item: { key: "house4ever:999", url: "u9" }, reason: "commercial property" }]);
+  assert.equal(s.listings["house4ever:999"], undefined);
 });
 
 test("sorting: verified distance first, unverified never treated as zero", () => {
