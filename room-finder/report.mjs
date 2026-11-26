@@ -3,6 +3,7 @@ import { REFERENCE, RADIUS_KM, MAX_RENT } from "./config.mjs";
 
 const NP = "Not provided";
 const RECENT_DAYS = 7;
+const MAX_UNVERIFIED_IN_MD = 100;
 
 export function freshness(l) {
   const t = Date.parse(l.updatedDate || l.listingDate || "");
@@ -120,7 +121,8 @@ export function renderMarkdown(rep) {
 
   if (rep.newListings.length) {
     L.push("## 🆕 New listings", "");
-    for (const r of rep.newListings) L.push(line(r));
+    for (const r of rep.newListings.slice(0, 50)) L.push(line(r));
+    if (rep.newListings.length > 50) L.push(`- …and ${rep.newListings.length - 50} more (see report.json)`);
     L.push("");
   }
   if (rep.priceChanges.length) {
@@ -134,9 +136,14 @@ export function renderMarkdown(rep) {
   for (const r of rep.listings) (groups[r.locality] ||= []).push(r);
   const order = Object.entries(groups).sort((a, b) => minDist(a[1]) - minDist(b[1]));
   if (!order.length) L.push("_No matching listings from the sources that were searched successfully._", "");
+  // Keep the readable report short: every verified listing, but at most MAX_UNVERIFIED_IN_MD unverified ones.
+  let unverifiedShown = 0;
   for (const [loc, rs] of order) {
+    const shown = rs.filter((r) => r.distanceKm !== null || unverifiedShown++ < MAX_UNVERIFIED_IN_MD);
+    if (!shown.length) continue;
     L.push(`### ${loc} (${rs.length})`, "");
-    for (const r of rs) L.push(line(r));
+    for (const r of shown) L.push(line(r));
+    if (shown.length < rs.length) L.push(`- …and ${rs.length - shown.length} more with unverified distance (see latest.json)`);
     L.push("");
   }
 
