@@ -54,7 +54,7 @@ export async function fetchText(url, { gap = MIN_GAP_MS, attempts = MAX_ATTEMPTS
       if (looksBlocked(res.status, body)) {
         // 429 may clear with backoff; 403 / challenge pages will not, and must not be bypassed.
         if (res.status === 429 && i < attempts - 1) { lastErr = new FetchError("HTTP 429", { status: 429, kind: "blocked", url }); await sleep(BACKOFF_MS * 2 * 2 ** i); continue; }
-        throw new FetchError(`Blocked by site (HTTP ${res.status}); not bypassed`, { status: res.status, kind: "blocked", url });
+        throw new FetchError(`Blocked by site (${res.status === 200 ? "bot-check page" : `HTTP ${res.status}`}); not bypassed`, { status: res.status, kind: "blocked", url });
       }
       if (res.status >= 500) { lastErr = new FetchError(`HTTP ${res.status}`, { status: res.status, kind: "http", url }); await sleep(BACKOFF_MS * 2 ** i); continue; }
       if (!res.ok) throw new FetchError(`HTTP ${res.status}`, { status: res.status, kind: "http", url });
