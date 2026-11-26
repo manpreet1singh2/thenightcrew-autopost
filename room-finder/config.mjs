@@ -31,6 +31,12 @@ export const EXTENDED_LOCALITIES = [
 ];
 // The extended sweep (and slower sources) run at most this often, even though the workflow fires every 5 minutes.
 export const EXTENDED_EVERY_MIN = 30;
+// List pages hold 12 listings each. Core localities are read in full (Sector 70/71 have 100+ listings);
+// extended localities only their newest pages.
+export const MAX_PAGES_CORE = 12;
+export const MAX_PAGES_EXTENDED = 4;
+// Stop starting new requests after this long, so the job (10 min limit) always finishes and saves its state.
+export const RUN_BUDGET_MS = Number(process.env.ROOM_FINDER_BUDGET_MS ?? 7.5 * 60e3);
 
 // Listing pages give coordinates (verified distance). Fetch at most this many per run:
 // more on the quick core runs, fewer on the long 30-minute sweep. Over-budget listings are never fetched.
