@@ -189,7 +189,7 @@ async function verifySlot(slot) {
 }
 
 // ---------- run ----------
-try { await publishLinkedInBrandPosts({ today, dayNumber: Number(today.slice(-2)), state, dryRun: DRY, log }); } catch (e) { err(`LinkedIn brand publishing: ${e.message}`); }
+// Facebook-only mode: LinkedIn publishing is intentionally disabled.
 const due = day.slots.filter((s) => ["pending", "retry"].includes(s.status) && s.at <= now + 5 * 60_000);
 const maxAttempts = CONFIG.maxAttempts || 3;
 const runLimit = Number(env.MAX_PER_RUN || (DRY ? 1 : 4));  // ek run me zyada se zyada itne (baaki agle ghante)
