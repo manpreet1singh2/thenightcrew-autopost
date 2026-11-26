@@ -3,7 +3,8 @@
 import * as house4ever from "./house4ever.mjs";
 import * as acres99 from "./acres99.mjs";
 
-export const ADAPTERS = [house4ever, acres99];
+// 99acres first: it is quick (few pages, or blocked at once) and must not be starved by House4Ever's longer crawl.
+export const ADAPTERS = [acres99, house4ever];
 
 export const DISABLED_SOURCES = [
   { id: "magicbricks", name: "MagicBricks", reason: "Adapter not built yet: no public Mohali locality page has been verified for automated access." },
