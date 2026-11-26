@@ -47,6 +47,7 @@ export function parseListPage(html, pageUrl) {
       url: normalizeUrl(it.url) + "/",
       title,
       rent: parseRent(it.price),
+      listPrice: parseRent(it.price),
       currency: it.priceCurrency || "INR",
       address: cleanText(addr.streetAddress || ""),
       locality: normalizeLocality(addr.streetAddress || addr.addressLocality || ""),
@@ -122,10 +123,14 @@ export async function run(ctx) {
   const now = Date.now();
   for (const it of listings.values()) {
     const known = ctx.getKnown(it.key);
-    const fresh = known?.detailsFetchedAt && now - Date.parse(known.detailsFetchedAt) < DETAIL_REFRESH_DAYS * 864e5;
-    if (fresh) { Object.assign(it, pickDetails(known)); continue; }
+    // Re-read the listing page when it is stale or when the list-page price moved since we last read it.
+    const fresh = known?.detailsFetchedAt && now - Date.parse(known.detailsFetchedAt) < DETAIL_REFRESH_DAYS * 864e5 && known.listPrice === it.listPrice;
+    if (fresh) { Object.assign(it, pickDetails(known)); if (known.detailRent) it.rent = known.detailRent; continue; }
     const worthIt = (it.rent === null || it.rent <= MAX_RENT) && !relevanceProblem(it.title);
-    if (!worthIt || detailFetches >= cap) { if (known) Object.assign(it, pickDetails(known)); continue; }
+    if (!worthIt || detailFetches >= cap) {
+      if (known) { Object.assign(it, pickDetails(known)); if (known.detailRent && known.listPrice === it.listPrice) it.rent = known.detailRent; }
+      continue;
+    }
     detailFetches++;
     try {
       const d = parseDetailPage(await ctx.fetch(it.url), it.url);
@@ -139,8 +144,9 @@ export async function run(ctx) {
         roomType: it.roomType || extra.roomType,
         detailsFetchedAt: new Date().toISOString(),
       });
-      if (d.rent && d.rent !== it.rent) it.rentNote = `List page shows ₹${it.rent}, listing page shows ₹${d.rent}; using listing page`;
-      if (d.rent) it.rent = d.rent;
+      // The listing's own page is authoritative; a different list-page price is kept as a warning.
+      it.rentNote = d.rent && it.listPrice && d.rent !== it.listPrice ? `Price differs on the site: list page ₹${it.listPrice}, listing page ₹${d.rent} — confirm with owner` : undefined;
+      if (d.rent) { it.rent = d.rent; it.detailRent = d.rent; }
       pages.push({ url: it.url, status: "ok", count: 1, detail: true });
     } catch (e) {
       if (known) Object.assign(it, pickDetails(known));
@@ -154,7 +160,7 @@ export async function run(ctx) {
 
 function pickDetails(k) {
   const out = {};
-  for (const f of ["lat", "lng", "distanceKm", "listingDate", "updatedDate", "amenities", "sourceAvailability", "detailsFetchedAt", "furnishing", "occupancy", "food", "tenantNotes", "listedBy"]) {
+  for (const f of ["lat", "lng", "distanceKm", "listingDate", "updatedDate", "amenities", "sourceAvailability", "detailsFetchedAt", "furnishing", "occupancy", "food", "tenantNotes", "listedBy", "rentNote"]) {
     if (k[f] !== undefined && k[f] !== null) out[f] = k[f];
   }
   return out;
