@@ -120,6 +120,7 @@ test("fetchText: retries 5xx then succeeds; 403 is blocked without retry; robots
   assert.equal(m, 1);
 
   await assert.rejects(lib.fetchText("https://c.test/x", { fetchImpl: async () => resp(404) , gap: 0 }), (e) => e.kind === "not_found");
+  await assert.rejects(lib.fetchText("https://e.test/x", { deadline: Date.now() - 1, fetchImpl: async () => resp(200, "x"), gap: 0 }), (e) => e.kind === "budget");
   const robots = lib.parseRobots("User-agent: *\nDisallow: /private/");
   await assert.rejects(lib.fetchText("https://d.test/private/1", { robots, fetchImpl: async () => resp(200, "x"), gap: 0 }), (e) => e.kind === "robots");
 });
@@ -239,4 +240,39 @@ test("end-to-end: second run reports no new listings; total failure keeps histor
   } finally {
     process.chdir(cwd);
   }
+});
+
+test("time budget: unchecked pages make a source 'partial', never 'ok'; nothing checked = 'skipped'", async () => {
+  const { summarise } = await import("../search.mjs");
+  const ad = { id: "x", name: "X" };
+  const part = summarise(ad, { listings: [], pages: [{ url: "a", status: "ok" }, { url: "b", status: "budget" }] });
+  assert.equal(part.status, "partial");
+  assert.match(part.error, /not checked/);
+  assert.equal(summarise(ad, { listings: [], pages: [{ url: "a", status: "budget" }] }).status, "skipped");
+  assert.equal(summarise(ad, { listings: [], pages: [{ url: "a", status: "ok" }, { url: "b", status: "not_found" }] }).status, "ok");
+  assert.equal(summarise(ad, { listings: [], pages: [{ url: "a", status: "blocked", error: "x" }] }).status, "blocked");
+});
+
+test("House4Ever: core localities paginate fully; over-budget listings get no detail fetch", async () => {
+  const fetched = [];
+  const items = Array.from({ length: 12 }, (_, i) => ({ url: `https://house4ever.com/room-${i}-${100 + i}/`, name: "Room for rent", price: i === 0 ? 15000 : 5000 }));
+  const page = F.h4eListPage(items, 30);
+  const ctx = {
+    extendedDue: false,
+    getKnown: () => undefined,
+    fetch: async (url) => {
+      fetched.push(url);
+      if (url.includes("/mohali/sector-67/rooms-for-rent/")) {
+        const p = Number(new URL(url).searchParams.get("page") || 1);
+        return F.h4eListPage(items.map((it) => ({ ...it, url: it.url.replace(/-(\d+)\/$/, (m, n) => `-${Number(n) + p * 1000}/`) })), 30);
+      }
+      if (/room-\d+-\d+\/$/.test(url)) return F.h4eDetailPage({ url, name: "Room", price: 5000, lat: 30.68, lng: 76.72 });
+      throw Object.assign(new Error("HTTP 404"), { kind: "not_found" });
+    },
+  };
+  const out = await h4e.run(ctx);
+  const s67 = out.pages.filter((p) => !p.detail && p.url.includes("sector-67/rooms"));
+  assert.equal(s67.length, 3, "30 listings = 3 pages of 12");
+  const detailUrls = fetched.filter((u) => /room-0-/.test(u));
+  assert.equal(detailUrls.length, 0, "the ₹15,000 listing must not trigger a detail fetch");
 });
