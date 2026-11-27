@@ -1674,8 +1674,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "funny comedy people",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:7017803",
+     "sourceKind": "stock",
+     "title": "When the Punchline Takes a Detour",
+     "remoteId": "2250569825877042",
+     "publishedAt": 1795766913028,
+     "permalink": "https://www.facebook.com/reel/2250569825877042/"
     },
     {
      "i": 1,
@@ -1684,8 +1690,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "adult women fashion lifestyle",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 2,
@@ -1819,7 +1826,9 @@
    "pexels:19985682",
    "8d9d8e66f2093be0a19bdcd4f5292415974982c3c9b17bc6ec21518ef6daf655",
    "pexels:26867682",
-   "44b30eaf5c0db9cb84d219cff24d64937bedaf6613324fef5cb3a991417766b5"
+   "44b30eaf5c0db9cb84d219cff24d64937bedaf6613324fef5cb3a991417766b5",
+   "pexels:7017803",
+   "f0b13404eb65e3551f722d21eb41b48aadf005a10fdaf5ba0b09e0b631d612b6"
   ]
  },
  "discovered": [],
@@ -1959,10 +1968,14 @@
   {
    "at": 1795705193447,
    "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795766924454,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795736624442,
+  "fetchedAt": 1795766897467,
   "list": [
    {
     "key": "facebook:628058697050691",
