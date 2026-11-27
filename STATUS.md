@@ -1,21 +1,21 @@
 # 📊 TheNightCrew Publishing Dashboard
-_Last update: 27 Nov 2026, 1:38 pm IST · auto-refresh har ghante_
+_Last update: 28 Nov 2026, 12:21 am IST · auto-refresh har ghante_
 
-## Aaj (2026-11-27) — target 6
+## Aaj (2026-11-28) — target 6
 | ✅ Published | ⏳ Processing | 🕒 Pending | 🔁 Retry | ❌ Failed | ⏭️ Skipped |
 |---|---|---|---|---|---|
-| 1 | 0 | 4 | 0 | 1 | 0 |
+| 0 | 0 | 6 | 0 | 0 | 0 |
 
 ## Connected accounts
 | Platform | Account | Eligible | Followers / Subs | Aaj published |
 |---|---|---|---|---|
-| facebook | The night crew | ✅ | 5 | 1 |
+| facebook | The night crew | ✅ | 5 | 0 |
 
 ## Schedule (aaj)
 | # | Time (IST) | Channel | Status | Content | Link / Error |
 |---|---|---|---|---|---|
-| 1 | 9:00 am | The night crew | ✅ published | pexels:7017803 | https://www.facebook.com/reel/2250569825877042/ |
-| 2 | 11:24 am | The night crew | ❌ failed (1) | – | `Cannot read properties of null (reading 'match')` |
+| 1 | 9:00 am | The night crew | 🕒 pending | – |  |
+| 2 | 11:24 am | The night crew | 🕒 pending | – |  |
 | 3 | 1:48 pm | The night crew | 🕒 pending | – |  |
 | 4 | 4:12 pm | The night crew | 🕒 pending | – |  |
 | 5 | 6:36 pm | The night crew | 🕒 pending | – |  |
