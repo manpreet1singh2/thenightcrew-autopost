@@ -1582,8 +1582,14 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "funny comedy people",
-     "status": "pending",
-     "attempts": 0
+     "status": "published",
+     "attempts": 0,
+     "sourceId": "pexels:7080972",
+     "sourceKind": "stock",
+     "title": "Small Moments, Big Smirks",
+     "remoteId": "1684105176441493",
+     "publishedAt": 1795860767740,
+     "permalink": "https://www.facebook.com/reel/1684105176441493/"
     },
     {
      "i": 1,
@@ -1592,8 +1598,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "adult women fashion lifestyle",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading 'match')"
     },
     {
      "i": 2,
@@ -1602,8 +1609,9 @@
      "channelName": "The night crew",
      "platform": "facebook",
      "topic": "relatable funny moments",
-     "status": "pending",
-     "attempts": 0
+     "status": "failed",
+     "attempts": 1,
+     "error": "Cannot read properties of null (reading '0')"
     },
     {
      "i": 3,
@@ -1729,7 +1737,9 @@
    "pexels:26867682",
    "44b30eaf5c0db9cb84d219cff24d64937bedaf6613324fef5cb3a991417766b5",
    "pexels:7017803",
-   "f0b13404eb65e3551f722d21eb41b48aadf005a10fdaf5ba0b09e0b631d612b6"
+   "f0b13404eb65e3551f722d21eb41b48aadf005a10fdaf5ba0b09e0b631d612b6",
+   "pexels:7080972",
+   "8f28ab993040c4e437f16cf03dea6c8d809d3f2b9d1f875c715f59e8ab6b1078"
   ]
  },
  "discovered": [],
@@ -1873,10 +1883,18 @@
   {
    "at": 1795766924454,
    "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795860779132,
+   "msg": "The night crew: Cannot read properties of null (reading 'match')"
+  },
+  {
+   "at": 1795860789032,
+   "msg": "The night crew: Cannot read properties of null (reading '0')"
   }
  ],
  "accounts": {
-  "fetchedAt": 1795830818308,
+  "fetchedAt": 1795860751296,
   "list": [
    {
     "key": "facebook:628058697050691",
