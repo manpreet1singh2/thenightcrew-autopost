@@ -1,320 +1,6 @@
 {
  "target": 6,
  "days": {
-  "2026-11-22": {
-   "slots": [
-    {
-     "i": 0,
-     "at": 1795285800000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:18138660",
-     "sourceKind": "stock",
-     "title": "GTA 6: The New Zealand Early-Play Trick?",
-     "remoteId": "1457268213247540",
-     "publishedAt": 1795302266257,
-     "permalink": "https://www.facebook.com/reel/1457268213247540/"
-    },
-    {
-     "i": 1,
-     "at": 1795289400000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:1112221",
-     "sourceKind": "stock",
-     "title": "MrBeast Gives Tareq $44K After GTA 6 Heist Challenge For His Mom",
-     "remoteId": "3014141554572923",
-     "publishedAt": 1795302299500,
-     "permalink": "https://www.facebook.com/reel/3014141554572923/"
-    },
-    {
-     "i": 2,
-     "at": 1795293000000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "failed",
-     "attempts": 1,
-     "error": "Bad control character in string literal in JSON at position 149 (line 1 column 150)"
-    },
-    {
-     "i": 3,
-     "at": 1795296600000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:27155334",
-     "sourceKind": "stock",
-     "title": "Whatnot Sets Seller Commission to 0% for Black Friday Weekend",
-     "remoteId": "29444257758548373",
-     "publishedAt": 1795302315000,
-     "permalink": "https://www.facebook.com/reel/29444257758548373/"
-    },
-    {
-     "i": 4,
-     "at": 1795300200000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "failed",
-     "attempts": 1,
-     "error": "Bad control character in string literal in JSON at position 141 (line 1 column 142)"
-    },
-    {
-     "i": 5,
-     "at": 1795303800000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:4883833",
-     "sourceKind": "stock",
-     "title": "MrBeast in the Hollywood A-lister chat? 👀",
-     "remoteId": "1171531802499272",
-     "publishedAt": 1795316528275,
-     "permalink": "https://www.facebook.com/reel/1171531802499272/"
-    },
-    {
-     "i": 6,
-     "at": 1795307400000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "failed",
-     "attempts": 1,
-     "error": "Cannot read properties of null (reading '0')"
-    },
-    {
-     "i": 7,
-     "at": 1795311000000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:38442100",
-     "sourceKind": "stock",
-     "title": "The behind-the-scenes force in MrBeast's charity world",
-     "remoteId": "1460236203835775",
-     "publishedAt": 1795316558850,
-     "permalink": "https://www.facebook.com/reel/1460236203835775/"
-    },
-    {
-     "i": 8,
-     "at": 1795314600000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:38721030",
-     "sourceKind": "stock",
-     "title": "GTA 6 PC Port? A $15M Crypto Twist",
-     "remoteId": "1533043501984719",
-     "publishedAt": 1795345554464,
-     "permalink": "https://www.facebook.com/reel/1533043501984719/"
-    },
-    {
-     "i": 9,
-     "at": 1795318200000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:5976710",
-     "sourceKind": "stock",
-     "title": "The Times Has a Big Take on MrBeast",
-     "remoteId": "1370767155007671",
-     "publishedAt": 1795345564381,
-     "permalink": "https://www.facebook.com/reel/1370767155007671/"
-    },
-    {
-     "i": 10,
-     "at": 1795321800000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:16244876",
-     "sourceKind": "stock",
-     "title": "Lana Del Rey’s Vice City-inspired Birkin turns heads",
-     "remoteId": "1479759910757381",
-     "publishedAt": 1795345574928,
-     "permalink": "https://www.facebook.com/reel/1479759910757381/"
-    },
-    {
-     "i": 11,
-     "at": 1795325400000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "failed",
-     "attempts": 1,
-     "error": "Cannot read properties of null (reading '0')"
-    },
-    {
-     "i": 12,
-     "at": 1795329000000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "failed",
-     "attempts": 1,
-     "error": "Bad control character in string literal in JSON at position 165 (line 1 column 166)"
-    },
-    {
-     "i": 13,
-     "at": 1795332600000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:27430390",
-     "sourceKind": "stock",
-     "title": "How Many People Use YouTube in 2026?",
-     "remoteId": "1154105316980142",
-     "publishedAt": 1795372117515,
-     "permalink": "https://www.facebook.com/reel/1154105316980142/"
-    },
-    {
-     "i": 14,
-     "at": 1795336200000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "failed",
-     "attempts": 1,
-     "error": "Bad control character in string literal in JSON at position 170 (line 1 column 171)"
-    },
-    {
-     "i": 15,
-     "at": 1795339800000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "published",
-     "attempts": 0,
-     "sourceId": "pexels:38381136",
-     "sourceKind": "stock",
-     "title": "MrBeast Lawsuit Settled: Ex-Dev Director Accused Over Swiped Files & Hidden Cameras",
-     "remoteId": "2384850588921166",
-     "publishedAt": 1795372136519,
-     "permalink": "https://www.facebook.com/reel/2384850588921166/"
-    },
-    {
-     "i": 16,
-     "at": 1795343400000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 17,
-     "at": 1795347000000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 18,
-     "at": 1795350600000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 19,
-     "at": 1795354200000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 20,
-     "at": 1795357800000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 21,
-     "at": 1795361400000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 22,
-     "at": 1795365000000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "GTA 6",
-     "status": "pending",
-     "attempts": 0
-    },
-    {
-     "i": 23,
-     "at": 1795368600000,
-     "channel": "facebook:628058697050691",
-     "channelName": "The night crew",
-     "platform": "facebook",
-     "topic": "MrBeast",
-     "status": "pending",
-     "attempts": 0
-    }
-   ],
-   "quota": {
-    "youtubeUnits": 0,
-    "instagram": {}
-   }
-  },
   "2026-11-23": {
    "slots": [
     {
@@ -1648,6 +1334,74 @@
     "youtubeUnits": 0,
     "instagram": {}
    }
+  },
+  "2026-11-29": {
+   "slots": [
+    {
+     "i": 0,
+     "at": 1795923000000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "funny comedy people",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 1,
+     "at": 1795931640000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "adult women fashion lifestyle",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 2,
+     "at": 1795940280000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "relatable funny moments",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 3,
+     "at": 1795948920000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "women beauty fashion portrait",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 4,
+     "at": 1795957560000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "funny comedy people",
+     "status": "pending",
+     "attempts": 0
+    },
+    {
+     "i": 5,
+     "at": 1795966200000,
+     "channel": "facebook:628058697050691",
+     "channelName": "The night crew",
+     "platform": "facebook",
+     "topic": "adult women fashion lifestyle",
+     "status": "pending",
+     "attempts": 0
+    }
+   ],
+   "quota": {
+    "youtubeUnits": 0,
+    "instagram": {}
+   }
   }
  },
  "posted": {
@@ -1894,7 +1648,7 @@
   }
  ],
  "accounts": {
-  "fetchedAt": 1795860751296,
+  "fetchedAt": 1795891825527,
   "list": [
    {
     "key": "facebook:628058697050691",
@@ -1910,5 +1664,5 @@
    }
   ]
  },
- "discoveredOn": "2026-11-28"
+ "discoveredOn": "2026-11-29"
 }
